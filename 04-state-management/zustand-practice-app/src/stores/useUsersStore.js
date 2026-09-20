@@ -6,10 +6,8 @@ export const useUsersStore = create((set) => ({
   error: null,
   fetchUsers: async () => {
     set({ status: 'loading', error: null })
-
     try {
       const response = await fetch('https://jsonplaceholder.typicode.com/users?_limit=5')
-
       if (!response.ok) {
         throw new Error('Unable to fetch users')
       }
