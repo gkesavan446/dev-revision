@@ -14,7 +14,7 @@
 
 - Call hooks only at the top level of components or custom hooks.
 - `useState`: local state.
-- `useEffect`: synchronize with external systems and return cleanup.
+- `useEffect`: synchronize with external systems and return cleanup function.
 - `useRef`: persistent mutable value without rendering.
 - `useContext`: read the nearest provider value.
 - `useReducer`: action-based complex state transitions.
@@ -53,4 +53,3 @@
 - Keep state close to consumers and derive values during render when possible.
 - Represent loading, error, empty and success states explicitly.
 - Cancel obsolete fetch requests and clean timers/subscriptions.
-
