@@ -99,6 +99,7 @@ INTERVIEW QUESTIONS
 2. What is the difference between break and continue?
 3. When would you use a while loop?
 4. What makes do...while different from while?
+5. what is the difference between foreach and map
 
 PRACTICE
 Given [4, 7, 10, 13, 16, 19], use a loop to create a new array containing
