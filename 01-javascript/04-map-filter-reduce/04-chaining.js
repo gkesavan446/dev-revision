@@ -59,6 +59,7 @@ INTERVIEW QUESTIONS
 2. When should a chain be split into variables?
 3. Does each step create an intermediate array?
 4. How would you explain a filter-map-reduce pipeline?
+5. what if accumlator was not specifically provided?
 
 PRACTICE
 From an array of products, keep in-stock products priced above 1000, create
