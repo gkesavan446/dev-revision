@@ -42,6 +42,7 @@ INTERVIEW QUESTIONS
 2. Why store results by index instead of pushing?
 3. What happens after one input rejects?
 4. Does rejecting cancel the remaining operations? No.
+5. difference between promise.all, promise.race, and other promise types
 
 PRACTICE
 Test a rejection and prove that the outer Promise rejects with that reason.
