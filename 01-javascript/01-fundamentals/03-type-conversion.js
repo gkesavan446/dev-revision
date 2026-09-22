@@ -77,6 +77,7 @@ INTERVIEW QUESTIONS
 2. What is the difference between == and ===?
 3. What are JavaScript's falsy values?
 4. How do you reliably check for NaN?
+5. how to compare a object with another object
 
 PRACTICE
 Store price, quantity, and discount as strings, convert them to numbers, and

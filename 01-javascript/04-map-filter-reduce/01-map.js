@@ -61,6 +61,7 @@ INTERVIEW QUESTIONS
 2. Does map change array length?
 3. What is the difference between map and forEach?
 4. Does map guarantee the original objects are not mutated?
+5. polyfil for map
 
 PRACTICE
 Given products with title and price, return a new array with title, original
