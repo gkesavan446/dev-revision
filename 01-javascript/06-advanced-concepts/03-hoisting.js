@@ -45,3 +45,6 @@ Predict the output of examples using a function declaration, var, let, const,
 and a function expression. Then run each risky example separately.
 */
 
+
+//what is temporal dead zone
+
