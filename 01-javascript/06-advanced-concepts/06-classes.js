@@ -56,8 +56,11 @@ COMMON MISTAKES
 - Calling a static method on an instance
 - Believing classes replace JavaScript's prototype system
 
+// what is super in class
+
 PRACTICE
 Create Account and SavingsAccount classes. Add deposit, a static validator,
 and an overridden summary method. Keep the account number private.
 */
+
 
