@@ -12,6 +12,8 @@ and bind can explicitly choose this. Arrow functions inherit this from their
 surrounding scope.
 */
 
+// this keyword is to call object explicitly
+
 const user = {
   name: "Kesavan",
   showName() {
