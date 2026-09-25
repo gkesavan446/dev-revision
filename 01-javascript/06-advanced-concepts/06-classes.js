@@ -57,6 +57,7 @@ COMMON MISTAKES
 - Believing classes replace JavaScript's prototype system
 
 // what is super in class
+// types of functions
 
 PRACTICE
 Create Account and SavingsAccount classes. Add deposit, a static validator,
