@@ -46,6 +46,8 @@ INTERVIEW ANSWER
 Array.flat handles nested arrays to a chosen depth. Recursive traversal is more
 flexible for unknown depth or structured trees because it can preserve metadata.
 
+// falttern array with and without inbuilt function
+
 PRACTICE
 Flatten a nested comments tree into objects containing id, text, parentId, and depth.
 */
