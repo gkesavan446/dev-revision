@@ -1,0 +1,1 @@
+select version(); - to know the version of the postgress
