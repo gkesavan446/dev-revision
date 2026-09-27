@@ -50,5 +50,3 @@ select min(salary) from employees;
 
 
 =============
-
-how to connect with postgress with command prompt
