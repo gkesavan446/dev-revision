@@ -41,3 +41,14 @@ select * from employees limit 3;
 select * from employees order by emp_name desc limit 2;
 
 select distinct salary, emp_name from employees;
+
+
+select count(*) from employees;
+
+select min(salary) from employees;
+
+
+
+=============
+
+how to connect with postgress with command prompt
