@@ -51,3 +51,5 @@ select min(salary) from employees;
 
 =============
 refer chatgpy learn postgress chat 
+
+first without prisma, then with prisma
