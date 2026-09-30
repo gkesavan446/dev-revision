@@ -53,3 +53,26 @@ select min(salary) from employees;
 refer chatgpy learn postgress chat from start to end
 
 first without prisma, then with prisma
+
+create table users(
+	id integer generated always as identity primary key,
+	name varchar(100) not null,
+	email varchar(255) unique not null,
+	created_at timestamp default current_timestamp
+)
+
+CREATE TABLE tasks (
+    id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    user_id INTEGER NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    status VARCHAR(20) DEFAULT 'pending',
+    priority VARCHAR(20) DEFAULT 'medium',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT fk_tasks_user
+        FOREIGN KEY (user_id)
+        REFERENCES users(id)
+        ON DELETE CASCADE
+);
