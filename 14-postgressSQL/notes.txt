@@ -76,3 +76,112 @@ CREATE TABLE tasks (
         REFERENCES users(id)
         ON DELETE CASCADE
 );
+
+
+====================================================
+
+-- create table users(
+-- 	id integer generated always as identity primary key,
+-- 	name varchar(100) not null,
+-- 	email varchar(255) unique not null,
+-- 	created_at timestamp default current_timestamp
+-- )
+
+-- CREATE TABLE tasks (
+--     id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+--     user_id INTEGER NOT NULL,
+--     title VARCHAR(255) NOT NULL,
+--     description TEXT,
+--     status VARCHAR(20) DEFAULT 'pending',
+--     priority VARCHAR(20) DEFAULT 'medium',
+--     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+--     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+--     CONSTRAINT fk_tasks_user
+--         FOREIGN KEY (user_id)
+--         REFERENCES users(id)
+--         ON DELETE CASCADE
+-- );
+
+
+
+-- SELECT * FROM users;
+
+-- SELECT * FROM tasks;
+
+-- INSERT INTO users (name, email) VALUES
+--     ('Kesavan', 'kesavan@gmail.com'),
+--     ('Arun', 'arun@gmail.com'),
+--     ('Ravi', 'ravi@gmail.com'),
+--     ('Priya', 'priya@gmail.com')
+-- RETURNING *;
+
+-- INSERT INTO tasks ( user_id, title, description, status, priority) VALUES
+--     (1, 'Learn PostgreSQL', 'Complete PostgreSQL fundamentals', 'completed', 'high'),
+--     (1, 'Build REST API', 'Create the Express backend', 'pending', 'high'),
+--     (1, 'Learn React', 'Revise React hooks and patterns', 'completed', 'medium'),
+--     (2, 'Learn Node.js', 'Practice Express and Node concepts', 'pending', 'high'),
+--     (2, 'Build Backend', 'Connect Node.js with PostgreSQL', 'completed', 'medium'),
+--     (3, 'Learn SQL', 'Practice joins and aggregation', 'pending', 'low'),
+--     (4, 'Build Frontend', 'Create the React task interface', 'completed', 'high'),
+--     (4, 'Add Search', 'Implement task search', 'pending', 'medium'),
+--     (4, 'Documentation', 'Document the project', 'pending', 'low')
+-- RETURNING *;
+
+-- select users.name, tasks.title, tasks.status from users join tasks on users.id = tasks.user_id;
+
+
+-- select * from tasks order by id desc;
+
+-- SELECT tasks.id, users.name AS user_name, tasks.title, tasks.status,
+--     tasks.priority FROM tasks JOIN users ON users.id = tasks.user_id
+-- ORDER BY tasks.id DESC;
+
+-- SELECT * FROM tasks WHERE status = 'pending' ORDER BY id DESC;
+
+-- SELECT * FROM tasks WHERE user_id = 1 ORDER BY id DESC;
+
+-- SELECT users.id, users.name, COUNT(tasks.id) AS task_count
+-- FROM users LEFT JOIN tasks ON users.id = tasks.user_id
+-- GROUP BY users.id, users.name ORDER BY task_count DESC;
+
+-- select * from tasks order by id desc;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
