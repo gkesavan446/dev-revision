@@ -122,7 +122,6 @@ export const getTaskById = async (req, res) => {
 export const createTask = async (req, res) => {
     try {
         const { user_id, title, description, status, priority } = req.body;
-
         const result = await pool.query(`
                 Insert INTO tasks (user_id, title, description, status, priority) values 
                     ($1, $2, $3, $4, $5) returning *
