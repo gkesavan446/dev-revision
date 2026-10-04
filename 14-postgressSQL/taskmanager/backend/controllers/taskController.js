@@ -104,18 +104,13 @@ export const getTaskById = async (req, res) => {
         );
 
         if (result.rows.length === 0) {
-            return res.status(404).json({
-                message: "Task not found"
-            });
+            return res.status(404).json({ message: "Task not found"});                
         }
-
         res.status(200).json(result.rows[0]);
     } catch (error) {
         console.error("Error fetching task:", error.message);
-
-        res.status(500).json({
-            message: "Failed to fetch task"
-        });
+        res.status(500).json({ message: "Failed to fetch task"});           
+        
     }
 };
 
