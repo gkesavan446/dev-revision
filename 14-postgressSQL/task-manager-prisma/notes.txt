@@ -1,0 +1,54 @@
+NEW PRISMA + POSTGRESQL PROJECT
+────────────────────────────────
+
+1. Create project
+   npm init -y
+
+2. Install
+   npm install express cors dotenv @prisma/client@7.10.0 pg @prisma/adapter-pg
+   npm install -D prisma@7.10.0 nodemon
+
+3. package.json
+   "type": "module"
+
+4. Initialize Prisma
+   npx prisma init
+
+5. Configure .env
+   DATABASE_URL="postgresql://..."
+
+6. Configure prisma7.config.ts
+
+7. Build schema.prisma
+   PostgreSQL
+   provider = "prisma-client"
+   output = "../generated/prisma"
+   runtime = "nodejs"
+
+8. Validate
+   npx prisma validate
+
+9. Create migration
+   npx prisma migrate dev --name init
+
+10. Generate client
+    npx prisma generate
+
+11. Create config/prisma.js
+    PrismaPg adapter
+    PrismaClient
+
+12. Test database connection
+
+13. Setup Express
+    app.js
+    server.js
+
+14. Create controllers/routes
+
+15. Add .gitignore
+    node_modules/
+    .env
+
+16. Start
+    npm run dev

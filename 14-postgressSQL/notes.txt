@@ -1,3 +1,26 @@
+npm list @prisma/client
+npx prisma --version
+
+New Project
+    ↓
+npm init -y
+    ↓
+npm install express cors dotenv @prisma/client@7.10.0
+    ↓
+npm install -D prisma@7.10.0 nodemon
+    ↓
+npx prisma init
+
+after creating model in schema.prisma
+
+npx prisma validate
+
+npx prisma migrate dev --name init
+
+npx prisma generate
+
+
+
 select version(); - to know the version of the postgress
 
  select version();
