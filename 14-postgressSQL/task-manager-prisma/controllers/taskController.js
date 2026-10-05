@@ -83,7 +83,6 @@ export const getTasks = async (req, res) => {
                 user: true,
             },
         });
-
         res.status(200).json(tasks);
     } catch (error) {
         console.error(error);
