@@ -300,7 +300,6 @@ type User = {
 That causes an error.
 
 
-
 Use type when you need unions/intersections or other type compositions
 type Status = "pending" | "success" | "failed";
 type ID = string | number;
