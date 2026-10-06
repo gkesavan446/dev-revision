@@ -14,9 +14,12 @@ NEW PRISMA + POSTGRESQL PROJECT
 4. Initialize Prisma
    npx prisma init
 
-5. Configure .env
-   DATABASE_URL="postgresql://..."
+   create database in postgreSQL in pgAdmin4
 
+5. Configure .env
+   DATABASE_URL="postgresql://postgres:postgres@localhost:5432/task_manager_prisma"
+
+  
 6. Configure prisma7.config.ts
 
 7. Build schema.prisma
@@ -24,6 +27,8 @@ NEW PRISMA + POSTGRESQL PROJECT
    provider = "prisma-client"
    output = "../generated/prisma"
    runtime = "nodejs"
+
+   create model User {}
 
 8. Validate
    npx prisma validate
@@ -38,13 +43,51 @@ NEW PRISMA + POSTGRESQL PROJECT
     PrismaPg adapter
     PrismaClient
 
+      import "dotenv/config";
+      import { PrismaPg } from "@prisma/adapter-pg";
+      import { PrismaClient } from "../generated/prisma/client.ts";
+
+      const adapter = new PrismaPg({
+         connectionString: process.env.DATABASE_URL,
+      });
+
+      const prisma = new PrismaClient({
+         adapter,
+      });
+
+      export default prisma;
+
 12. Test database connection
 
 13. Setup Express
     app.js
     server.js
 
+      import express from "express";
+      import cors from "cors";
+      import userRouter from './routes/userRoutes.js'
+
+      const PORT = process.env.PORT || 5000;
+
+      const app = express();
+      
+      app.use(cors());
+      app.use(express.json());
+
+      app.get("/", (req, res) => {
+         res.json({ message: "Task Manager API with Prisma" });
+      });
+
+      app.use("/api/users", userRouter)
+
+      app.listen(PORT, () => {
+         console.log(`Server running on port ${PORT}`);
+      });
+
 14. Create controllers/routes
+
+   import prisma from "../config/prisma.js";
+
 
 15. Add .gitignore
     node_modules/

@@ -1,0 +1,517 @@
+1. JavaScript — MUST be strong
+
+You should be able to explain and code:
+
+ var, let, const
+ Scope and hoisting
+ Closures
+ Callbacks
+ Promises
+ async/await
+ Event loop
+ this
+ Destructuring
+ Spread/rest
+ map, filter, reduce
+ find, some, every
+ Array/object manipulation
+ Optional chaining
+ Nullish coalescing
+ Error handling
+ Debouncing
+ Throttling
+ Recursion
+ Basic polyfills
+
+You don't need extremely advanced JavaScript, but you should be able to write code without depending on Google.
+
+2. React — MUST be strong
+
+Be comfortable with:
+
+ Components
+ Props
+ State
+ useState
+ useEffect
+ useRef
+ useMemo
+ useCallback
+ Context API
+ Controlled forms
+ Conditional rendering
+ Lists and keys
+ API calls with fetch
+ Loading/error states
+ Authentication flow
+ Protected routes
+ Component re-rendering
+ Parent → child communication
+ Child → parent communication
+ Redux/Zustand basics
+
+You should also be able to explain why you would use a hook, not just its syntax.
+
+3. Node.js + Express — MUST be strong
+
+Know:
+
+ Node.js runtime
+ Event-driven architecture
+ npm
+ package.json
+ Environment variables
+ Express app
+ Routes
+ Controllers
+ Middleware
+ Error-handling middleware
+ Request/response lifecycle
+ REST APIs
+ HTTP methods
+ HTTP status codes
+ CORS
+ Authentication
+ JWT
+ Password hashing with bcrypt
+ Cookies vs localStorage
+ API validation
+ Async error handling
+
+You should be able to explain:
+
+Request
+   ↓
+Middleware
+   ↓
+Route
+   ↓
+Controller
+   ↓
+Database
+   ↓
+Response
+4. MongoDB + Mongoose — MUST be strong
+
+Because MongoDB is one of your primary MERN skills:
+
+ Database/collection/document
+ CRUD
+ Query operators
+ Projection
+ Sorting
+ Pagination
+ Indexes
+ Aggregation
+ $match
+ $group
+ $lookup
+ $project
+ $unwind
+ Schema/model
+ References
+ populate()
+ lean()
+ Validation
+ Transactions
+ MongoDB Atlas
+
+And be ready for questions like:
+
+Why use an index?
+
+What is the difference between populate() and $lookup?
+
+Why use lean()?
+
+5. PostgreSQL — NOW important
+
+Since you added PostgreSQL to your skills, know:
+
+ Database
+ Table
+ Row
+ Column
+ Primary key
+ Foreign key
+ Constraints
+ SELECT
+ INSERT
+ UPDATE
+ DELETE
+ WHERE
+ ORDER BY
+ GROUP BY
+ HAVING
+ JOIN
+ LEFT JOIN
+ Subqueries
+ Aggregations
+ Indexes
+ Transactions
+ Normalization
+ Parameterized queries
+ SQL injection
+
+You don't need to become a DBA.
+
+6. Prisma — Know the practical part
+
+You don't need to memorize every Prisma API.
+
+Be confident with:
+
+schema.prisma
+models
+relations
+Prisma Client
+migrations
+findMany()
+findUnique()
+create()
+update()
+delete()
+where
+orderBy
+skip
+take
+include
+select
+count()
+aggregate()
+groupBy()
+$transaction()
+
+And especially:
+
+Why Prisma instead of raw SQL?
+
+Good answer:
+
+"Prisma provides a type-safe and developer-friendly abstraction over the database. It simplifies CRUD operations, relationships, migrations and query construction, while still working with PostgreSQL underneath."
+
+Also know:
+
+P2002 → Unique constraint
+P2003 → Foreign key constraint
+P2025 → Record not found
+7. Neon — only basic understanding needed
+
+You don't need to become a Neon expert.
+
+Know:
+
+Neon = cloud-hosted PostgreSQL
+
+And understand:
+
+DATABASE_URL
+    ↓
+Application runtime
+
+DIRECT_URL
+    ↓
+Prisma CLI / migrations
+
+Also know:
+
+"My Express server can run locally while PostgreSQL is hosted remotely on Neon."
+
+That's enough for an interview.
+
+8. Authentication — VERY important
+
+This is one area I would make sure you're very comfortable with.
+
+You should be able to build:
+
+Register
+   ↓
+bcrypt password hashing
+   ↓
+Login
+   ↓
+JWT generation
+   ↓
+Client stores token
+   ↓
+Protected request
+   ↓
+JWT middleware
+   ↓
+Controller
+
+Know:
+
+ JWT structure
+ Access token
+ Authentication vs authorization
+ bcrypt
+ Password hashing
+ JWT middleware
+ Role-based authorization
+ Protected routes
+ Token expiry
+ Refresh-token concept
+
+You've already worked with JWT in your MERN projects, so this should be revision rather than new learning.
+
+9. Your projects — THIS is extremely important
+
+For you specifically, I would spend a lot of time here.
+
+An interviewer may spend more time asking about your projects than asking random theory questions.
+
+You should be able to explain:
+
+Trendz
+Why MongoDB?
+Why Express?
+Why Stripe?
+Why Cloudinary?
+How authentication works?
+How admin/user roles work?
+How cart works?
+How orders work?
+How payment status works?
+How images are uploaded?
+Money Metrics
+
+Be ready to explain:
+
+How transactions are stored
+Income vs expense
+Filtering
+Sorting
+Date handling
+Controller validation
+API structure
+AskMyDoc
+
+This is especially important because it differentiates you.
+
+You should confidently explain:
+
+Document
+   ↓
+Text extraction
+   ↓
+Chunking
+   ↓
+Gemini embeddings
+   ↓
+Vector storage/search
+   ↓
+Top-K retrieval
+   ↓
+Relevant context
+   ↓
+Gemini LLM
+   ↓
+Answer
+
+Be prepared for:
+
+What is RAG?
+
+Why embeddings?
+
+What is vector search?
+
+What is top-K?
+
+Why chunk documents?
+
+What happens if retrieval returns irrelevant chunks?
+
+10. Basic DSA
+
+For a junior/fresher MERN position, I wouldn't spend months on DSA.
+
+Know these patterns:
+
+ Arrays
+ Strings
+ Hash maps
+ Two pointers
+ Sliding window
+ Stack
+ Queue
+ Recursion
+ Binary search
+ Basic sorting
+ Linked list basics
+
+More importantly, practice explaining your approach:
+
+Understand problem
+      ↓
+Brute-force approach
+      ↓
+Identify inefficiency
+      ↓
+Optimize
+      ↓
+Time complexity
+      ↓
+Space complexity
+11. HTTP + Web fundamentals
+
+Don't overlook these.
+
+Know:
+
+GET
+POST
+PUT
+PATCH
+DELETE
+
+Status codes:
+
+200
+201
+400
+401
+403
+404
+409
+500
+
+Also:
+
+ REST
+ JSON
+ HTTP headers
+ Cookies
+ CORS
+ HTTPS
+ Request/response
+ Client/server architecture
+12. Git/GitHub
+
+You should comfortably use:
+
+git clone
+git status
+git add
+git commit
+git push
+git pull
+git branch
+git checkout
+git merge
+
+And understand:
+
+Working directory
+      ↓
+Staging
+      ↓
+Commit
+      ↓
+Remote repository
+
+Your GitHub profile should also make your projects easy to find.
+
+13. Deployment
+
+You don't need to become a DevOps engineer.
+
+But you should understand:
+
+React
+ ↓
+Netlify
+
+Express
+ ↓
+Backend hosting
+
+MongoDB
+ ↓
+MongoDB Atlas
+
+PostgreSQL
+ ↓
+Neon
+
+Know:
+
+ Environment variables
+ Production vs development
+ CORS configuration
+ API URL configuration
+ Build command
+ Start command
+ Database connection in production
+14. HR questions
+
+Don't leave these until the last day.
+
+You should have good answers for:
+
+ Tell me about yourself
+ Explain your career transition
+ Explain your projects
+ Why MERN?
+ Why should we hire you?
+ What are your strengths?
+ What are your weaknesses?
+ Why this company?
+ Explain a difficult bug you solved
+ Explain a project challenge
+ Where do you see yourself in 3–5 years?
+ Why did you have a career gap?
+ Are you comfortable learning new technologies?
+
+Your answers should sound natural, not memorized.
+
+What I would NOT learn right now
+
+For your current goal, don't suddenly start adding:
+
+❌ AWS
+❌ Docker
+❌ Kubernetes
+❌ Microservices
+❌ Kafka
+❌ Socket.IO
+❌ Advanced system design
+❌ Deep PostgreSQL administration
+❌ Advanced AI/ML mathematics
+
+Those can come later.
+
+Your priority should be:
+
+JavaScript
+   ↓
+React
+   ↓
+Node + Express
+   ↓
+MongoDB
+   ↓
+Authentication
+   ↓
+PostgreSQL + Prisma
+   ↓
+Your 3 projects
+   ↓
+DSA basics
+   ↓
+Interview practice
+Most important for you now
+
+I think you've reached the point where learning more technologies has diminishing returns.
+
+The next phase should be:
+
+Revision → Questions → Coding → Project explanation → Mock interviews → Job applications
+
+Not:
+
+Learn another technology → learn another technology → learn another technology.
+
+You already have enough material to interview for a MERN Stack Developer role. The main task now is making sure you can recall and explain what you already know under interview pressure.

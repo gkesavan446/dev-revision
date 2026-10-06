@@ -1,0 +1,503 @@
+Prisma + PostgreSQL + Express + Neon — Build Checklist
+1. Create the project
+ Create an empty project folder
+mkdir task-manager-prisma
+cd task-manager-prisma
+ Initialize Node
+npm init -y
+ Enable ES Modules in package.json
+"type": "module"
+ Install dependencies
+npm install express cors dotenv @prisma/client@7.10.0
+npm install @prisma/adapter-pg pg
+npm install -D prisma@7.10.0 nodemon
+ Add scripts
+"scripts": {
+  "dev": "nodemon server.js",
+  "start": "node server.js"
+}
+2. Create PostgreSQL database
+ Open pgAdmin
+ Create database:
+task_manager_prisma
+ Keep PostgreSQL running
+3. Initialize Prisma
+ Run:
+npx prisma init
+ Confirm these files exist:
+prisma/schema.prisma
+prisma7.config.ts
+.env
+4. Configure local database
+ Add PostgreSQL connection to .env
+DATABASE_URL="postgresql://postgres:YOUR_PASSWORD@localhost:5432/task_manager_prisma"
+ Never commit .env
+5. Configure Prisma
+ Update prisma7.config.ts
+import "dotenv/config";
+import { defineConfig } from "prisma/config";
+
+export default defineConfig({
+  schema: "prisma/schema.prisma",
+
+  migrations: {
+    path: "prisma/migrations",
+  },
+
+  datasource: {
+    url: process.env["DATABASE_URL"],
+  },
+});
+6. Create Prisma schema
+ Open prisma/schema.prisma
+ Add generator:
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+  runtime  = "nodejs"
+}
+ Add PostgreSQL datasource:
+datasource db {
+  provider = "postgresql"
+}
+ Add User model:
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String   @db.VarChar(100)
+  email     String   @unique @db.VarChar(255)
+  createdAt DateTime @default(now()) @map("created_at")
+
+  tasks Task[]
+
+  @@map("users")
+}
+ Add Task model:
+model Task {
+  id          Int      @id @default(autoincrement())
+  userId      Int      @map("user_id")
+  title       String   @db.VarChar(255)
+  description String?
+  status      String   @default("pending") @db.VarChar(20)
+  priority    String   @default("medium") @db.VarChar(20)
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @default(now()) @map("updated_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("tasks")
+}
+7. Validate and create database tables
+ Validate schema
+npx prisma validate
+ Create migration
+npx prisma migrate dev --name init
+ Generate Prisma Client
+npx prisma generate
+ Confirm:
+generated/prisma/
+
+exists.
+
+8. Create Prisma Client
+ Create:
+config/prisma.js
+ Add:
+import "dotenv/config";
+import { PrismaPg } from "@prisma/adapter-pg";
+import { PrismaClient } from "../generated/prisma/client.ts";
+
+const adapter = new PrismaPg({
+  connectionString: process.env.DATABASE_URL,
+});
+
+const prisma = new PrismaClient({
+  adapter,
+});
+
+export default prisma;
+9. Create Express server
+app.js
+ Create app.js
+import express from "express";
+import cors from "cors";
+
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.json({
+    message: "Task Manager API with Prisma",
+  });
+});
+
+export default app;
+server.js
+ Create server.js
+import app from "./app.js";
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
+ Start:
+npm run dev
+ Test:
+http://localhost:5000
+10. Create project folders
+ Create:
+config/
+controllers/
+routes/
+
+Final structure:
+
+task-manager-prisma/
+├── config/
+│   └── prisma.js
+├── controllers/
+├── routes/
+├── prisma/
+│   ├── migrations/
+│   └── schema.prisma
+├── generated/
+│   └── prisma/
+├── app.js
+├── server.js
+├── prisma7.config.ts
+├── .env
+├── .gitignore
+└── package.json
+11. Implement User CRUD
+ Create:
+controllers/userController.js
+
+Implement:
+
+GET     /api/users
+POST    /api/users
+GET     /api/users/:id
+PUT     /api/users/:id
+DELETE  /api/users/:id
+
+Use:
+
+prisma.user.findMany()
+prisma.user.create()
+prisma.user.findUnique()
+prisma.user.update()
+prisma.user.delete()
+ Handle Prisma errors:
+P2002 → duplicate/unique value
+P2025 → record not found
+12. Create User routes
+ Create:
+routes/userRoutes.js
+router.get("/", getUsers);
+router.post("/", createUser);
+router.get("/:id", getUserById);
+router.put("/:id", updateUser);
+router.delete("/:id", deleteUser);
+ Connect in app.js:
+app.use("/api/users", userRoutes);
+13. Implement Task CRUD
+ Create:
+controllers/taskController.js
+
+Implement:
+
+POST   /api/tasks
+GET    /api/tasks
+GET    /api/tasks/:id
+PUT    /api/tasks/:id
+DELETE /api/tasks/:id
+
+Use:
+
+prisma.task.create()
+prisma.task.findMany()
+prisma.task.findUnique()
+prisma.task.update()
+prisma.task.delete()
+ Handle:
+P2003 → invalid user/foreign key
+P2025 → task not found
+14. Add task filtering
+
+In findMany() support:
+
+ Status
+?status=pending
+ Priority
+?priority=high
+ Search
+?search=prisma
+ Sorting
+?sortBy=title&order=asc
+ Pagination
+?page=1&limit=10
+
+Use:
+
+where
+OR
+contains
+mode: "insensitive"
+orderBy
+skip
+take
+15. Add task → user relation
+ Use:
+include: {
+  user: true
+}
+
+Result:
+
+Task
+ └── user
+      ├── id
+      ├── name
+      └── email
+
+Remember:
+
+SQL JOIN
+    ≈
+Prisma include
+    ≈
+Mongoose populate
+16. Create Task routes
+ Create:
+routes/taskRoutes.js
+router.post("/", createTask);
+router.get("/", getTasks);
+router.get("/:id", getTaskById);
+router.put("/:id", updateTask);
+router.delete("/:id", deleteTask);
+ Connect:
+app.use("/api/tasks", taskRoutes);
+17. Test local API
+Create user
+POST /api/users
+{
+  "name": "Kesavan",
+  "email": "kesavan@example.com"
+}
+Create task
+POST /api/tasks
+{
+  "userId": 1,
+  "title": "Learn Prisma",
+  "description": "Prisma revision",
+  "status": "pending",
+  "priority": "high"
+}
+ Test GET
+ Test UPDATE
+ Test DELETE
+ Test invalid user ID
+ Test duplicate email
+ Test nonexistent ID
+ Test filtering
+ Test sorting
+ Test pagination
+ Verify data in pgAdmin
+18. Configure .gitignore
+ Create .gitignore
+node_modules/
+.env
+ Commit:
+prisma/schema.prisma
+prisma/migrations/
+prisma7.config.ts
+generated/prisma/
+19. Create Neon PostgreSQL database
+ Create Neon project
+ Create/select PostgreSQL database
+ Copy pooled connection string
+ Copy direct connection string
+ Do not expose passwords
+20. Configure Neon environment
+
+Change .env:
+
+DATABASE_URL="NEON_POOLED_CONNECTION"
+DIRECT_URL="NEON_DIRECT_CONNECTION"
+
+Remember:
+
+DATABASE_URL
+→ application/runtime
+
+DIRECT_URL
+→ Prisma CLI/migrations
+21. Configure Prisma for Neon migrations
+
+Update prisma7.config.ts:
+
+import "dotenv/config";
+import { defineConfig } from "prisma/config";
+
+export default defineConfig({
+  schema: "prisma/schema.prisma",
+
+  migrations: {
+    path: "prisma/migrations",
+  },
+
+  datasource: {
+    url: process.env["DIRECT_URL"],
+  },
+});
+22. Check Neon migration status
+ Run:
+npx prisma migrate status
+
+If migration is pending:
+
+Following migration have not yet been applied:
+...
+
+continue.
+
+23. Apply migrations to Neon
+ Run:
+npx prisma migrate deploy
+ Open Neon SQL Editor
+ Verify:
+users
+tasks
+_prisma_migrations
+24. Connect Express application to Neon
+
+Your config/prisma.js already uses:
+
+process.env.DATABASE_URL
+
+Because .env now contains the Neon pooled URL, the application automatically connects to Neon.
+
+ Restart:
+npm run dev
+ Test POST /api/users
+ Test GET /api/users
+ Test POST /api/tasks
+ Verify records appear in Neon
+25. Understand the final architecture
+                   LOCAL MACHINE
+┌─────────────────────────────────────────┐
+│                                         │
+│  Express                                │
+│     ↓                                   │
+│  Controllers                            │
+│     ↓                                   │
+│  Prisma Client                          │
+│     ↓                                   │
+│  DATABASE_URL                            │
+│                                         │
+└───────────────┬─────────────────────────┘
+                │
+                │ Internet
+                ▼
+        ┌──────────────────┐
+        │       Neon       │
+        │   PostgreSQL     │
+        └──────────────────┘
+26. Local ↔ Neon switching
+Local
+DATABASE_URL="postgresql://postgres:YOUR_PASSWORD@localhost:5432/task_manager_prisma"
+DIRECT_URL="postgresql://postgres:YOUR_PASSWORD@localhost:5432/task_manager_prisma"
+Neon
+DATABASE_URL="NEON_POOLED_CONNECTION"
+DIRECT_URL="NEON_DIRECT_CONNECTION"
+
+Then restart the server.
+
+Changing the URL does not require a migration if that database already has the required schema.
+
+If the target database is empty:
+
+npx prisma migrate deploy
+27. Prisma commands cheat sheet
+Initialize
+npx prisma init
+
+Validate
+npx prisma validate
+
+Create development migration
+npx prisma migrate dev --name init
+
+Apply existing migrations
+npx prisma migrate deploy
+
+Check migration status
+npx prisma migrate status
+
+Generate client
+npx prisma generate
+
+Push schema without migration history
+npx prisma db push
+
+Open Prisma Studio
+npx prisma studio
+28. Final "from zero" command sequence
+
+When you want to rebuild this project quickly, this is the shortest practical sequence:
+
+mkdir task-manager-prisma
+cd task-manager-prisma
+
+npm init -y
+
+npm install express cors dotenv @prisma/client@7.10.0
+npm install @prisma/adapter-pg pg
+npm install -D prisma@7.10.0 nodemon
+
+npx prisma init
+
+Then:
+
+1. Configure .env
+2. Configure prisma7.config.ts
+3. Write schema.prisma
+4. npx prisma validate
+5. npx prisma migrate dev --name init
+6. npx prisma generate
+7. Create config/prisma.js
+8. Create app.js
+9. Create server.js
+10. Create User controller/routes
+11. Create Task controller/routes
+12. Test with Postman
+13. Create Neon database
+14. Add DATABASE_URL + DIRECT_URL
+15. Change Prisma config to DIRECT_URL
+16. npx prisma migrate deploy
+17. Start Express
+18. Test API against Neon
+The 5 things to remember most
+schema.prisma
+     ↓
+defines database structure
+
+migrate dev
+     ↓
+creates migration + updates development DB
+
+generate
+     ↓
+creates Prisma Client
+
+DATABASE_URL
+     ↓
+application database connection
+
+DIRECT_URL
+     ↓
+Prisma CLI / migration connection
+
+This is the compact checklist version I’d use for your revision folder: you can rebuild the entire project without going back through the long explanation.

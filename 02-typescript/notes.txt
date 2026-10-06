@@ -1,1 +1,663 @@
 TYPESCRIPT :-
+
+TypeScript is JavaScript with a static type system.
+
+JavaScript	                            TypeScript
+
+Dynamically typed	                    Statically typed
+Types checked mainly at runtime	        Types checked during development/compilation
+More flexible	                        More predictable
+Easier to start	                        Requires learning types
+Large projects can 
+become harder to maintain	            Better tooling and maintainability
+Browser/Node can execute it directly	Usually compiled/transpiled to JavaScript
+
+
+
+This is called type inference.
+
+So you don't necessarily need:
+
+let name: string = "Kesavan";
+let age: number = 25;
+let isAdmin: boolean = false;
+
+You can often simply write:
+
+let name = "Kesavan";
+let age = 25;
+let isAdmin = false;
+
+TypeScript already knows the types.
+
+
+
+
+1. string
+let username: string = "Kesavan";
+
+2. number
+TypeScript uses number for integers and decimals.
+let age: number = 28;
+let price: number = 499.99;
+
+3. boolean
+let isAdmin: boolean = false;
+let isLoggedIn: boolean = true;
+
+
+4. null and undefined
+let result: null = null;
+let username: string | undefined;
+username = "Kesavan";
+username = undefined;
+
+
+
+5. Arrays
+You have two common ways to write an array type.
+Syntax 1
+let names: string[] = ["Kesavan", "Arun", "Vijay"];
+Syntax 2
+let names: Array<string> = ["Kesavan", "Arun", "Vijay"];
+
+
+
+6. Objects
+
+You can describe the shape of an object directly:
+let user: {
+  name: string;
+  age: number;
+  isAdmin: boolean;
+} = {
+  name: "Kesavan",
+  age: 28,
+  isAdmin: false
+};
+
+
+
+interface User {
+  name: string;
+  age: number;
+  phone?: string;
+}
+Now both are valid:
+const user1: User = {
+  name: "Kesavan",
+  age: 28
+};
+and:
+const user2: User = {
+  name: "Kesavan",
+  age: 28,
+  phone: "9876543210"
+};
+
+
+8. Tuple
+A tuple is an array where the position and type of each element are known.
+
+For example:
+let user: [string, number] = ["Kesavan", 28];
+
+const product = {
+  name: "Laptop",
+  price: 55000,
+  inStock: true,
+  tags: ["electronics", "laptop"]
+};
+
+We can describe that structure in TypeScript:
+
+interface Product {
+  name: string;
+  price: number;
+  inStock: boolean;
+  tags: string[];
+}
+
+Then:
+
+const product: Product = {
+  name: "Laptop",
+  price: 55000,
+  inStock: true,
+  tags: ["electronics", "laptop"]
+};
+
+
+functions:
+In TypeScript, we can type both the parameters a function receives and the value it returns.
+
+function add(a: number, b: number): number {
+  return a + b;
+}
+
+The syntax is:
+
+(parameters): returnType
+
+So:
+
+function greet(name: string): string {
+  return `Hello ${name}`;
+}
+
+
+When would we explicitly write the return type?
+
+It can be useful when:
+the function is important/public
+the return type is complex
+you want to enforce the function's contract
+you want clearer code
+you're working on larger applications
+
+
+Function returning nothing — void
+Consider:
+function logMessage(message: string): void {
+  console.log(message);
+}
+
+
+function getUserName(): string {
+  return "Kesavan";
+}
+
+function greet(name: string, role: string = "user") {
+  return `${name} is a ${role}`;
+}
+
+
+We can describe the function itself with a type:
+
+let calculate: (a: number, b: number) => number;
+
+This means:
+calculate must contain a function that accepts two numbers and returns a number.
+
+So this works:
+calculate = (a, b) => {
+  return a + b;
+};
+
+
+type vs interface
+
+This is one of the most important TypeScript topics for a MERN developer.
+Both interface and type can describe the shape of data.
+You'll frequently see:
+
+interface User {
+  name: string;
+  age: number;
+}
+
+and:
+
+type User = {
+  name: string;
+  age: number;
+};
+
+
+What interface is
+What type is
+When to use each
+Extending interfaces
+Combining types
+Real-world API/user/product examples
+Then a knowledge check
+
+
+Union types
+type PaymentStatus = "pending" | "paid" | "failed";
+
+
+type PaymentStatus = "Pending" | "Paid" | "Failed";
+
+Then:
+
+interface Order {
+  id: number;
+  totalPrice: number;
+  paymentStatus: PaymentStatus;
+}
+
+
+
+
+Extending an interface
+
+Suppose:
+
+interface User {
+  name: string;
+  email: string;
+}
+
+We can create another interface based on it:
+
+interface Admin extends User {
+  permissions: string[];
+}
+
+
+
+6. Extending types
+
+Types can also be combined.
+
+For example:
+
+type User = {
+  name: string;
+  email: string;
+};
+
+type Admin = User & {
+  permissions: string[];
+};
+
+
+. interface declaration merging
+
+Here's an important difference.
+
+You can declare the same interface more than once:
+
+interface User {
+  name: string;
+}
+
+interface User {
+  age: number;
+}
+
+TypeScript combines them.
+
+The final User is effectively:
+
+interface User {
+  name: string;
+  age: number;
+}
+
+
+A normal type alias cannot be redeclared like this:
+
+type User = {
+  name: string;
+};
+
+type User = {
+  age: number;
+};
+
+That causes an error.
+
+
+
+Use type when you need unions/intersections or other type compositions
+type Status = "pending" | "success" | "failed";
+type ID = string | number;
+type Admin = User & {
+  permissions: string[];
+};
+
+
+type User {
+    id : number,
+    name :string,
+    email : string
+}
+
+type UserRole = "user" | "admin"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
