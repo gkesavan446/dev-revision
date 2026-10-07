@@ -479,7 +479,6 @@ const user: PublicUser = {
 };
 
 
-
 Readonly<T>
 
 We previously saw:
