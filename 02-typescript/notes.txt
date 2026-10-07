@@ -478,7 +478,6 @@ const user: PublicUser = {
   email: "kesavan@example.com"
 };
 
-
 Readonly<T>
 
 We previously saw:
