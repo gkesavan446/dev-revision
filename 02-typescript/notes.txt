@@ -504,8 +504,6 @@ product.id = "p2";   // ❌
 product.name = "PC"; // ❌
 
 
-
-
 interface User {
   id: string;
   name: string;
