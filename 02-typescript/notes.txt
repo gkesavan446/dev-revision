@@ -317,6 +317,212 @@ type User {
 type UserRole = "user" | "admin"
 
 
+interface Order {
+  readonly id: string;
+  userId: string;
+  totalPrice: number;
+  status: OrderStatus;
+  paymentStatus: PaymentStatus;
+}
+
+enum OrderStatus {
+  Pending = "pending",
+  Processing = "processing",
+  Shipped = "shipped",
+  Delivered = "delivered"
+}
+
+TypeScript utility types. These are heavily used in real projects and interviews:
+
+Partial
+Required
+Pick
+Omit
+Record
+Readonly
+
+
+Partial
+
+const user: User = {
+  name: "Kesavan",
+  email: "kesavan@example.com",
+  age: 28
+};
+
+All three properties are required.
+
+But imagine an update user API.
+
+The user might update only their name:
+
+{
+  name: "Kesavan Kumar"
+}
+
+We don't want to require email and age.
+
+That's where Partial helps:
+
+type UpdateUser = Partial<User>;
+
+Conceptually, TypeScript transforms it into:
+
+type UpdateUser = {
+  name?: string;
+  email?: string;
+  age?: number;
+};
+
+
+
+Required<T>
+
+Required does the opposite.
+
+Suppose:
+
+interface User {
+  name: string;
+  email?: string;
+}
+
+Normally this is valid:
+
+const user: User = {
+  name: "Kesavan"
+};
+
+But:
+
+type CompleteUser = Required<User>;
+
+Now CompleteUser becomes conceptually:
+
+type CompleteUser = {
+  name: string;
+  email: string;
+};
+
+
+
+
+Pick<T, K>
+
+Pick lets you select only certain properties from an existing type.
+
+Suppose:
+
+interface User {
+  id: string;
+  name: string;
+  email: string;
+  password: string;
+  age: number;
+}
+
+Maybe your profile page only needs:
+
+name
+email
+
+Instead of creating another interface manually:
+
+interface UserProfile {
+  name: string;
+  email: string;
+}
+
+you can write:
+
+type UserProfile = Pick<User, "name" | "email">;
+
+Now:
+
+const profile: UserProfile = {
+  name: "Kesavan",
+  email: "kesavan@example.com"
+};
+
+
+Omit<T, K>
+
+Omit is basically the opposite of Pick.
+
+Suppose:
+
+interface User {
+  id: string;
+  name: string;
+  email: string;
+  password: string;
+}
+
+We want a user object without the password.
+
+type PublicUser = Omit<User, "password">;
+
+Conceptually:
+
+type PublicUser = {
+  id: string;
+  name: string;
+  email: string;
+};
+
+Now:
+
+const user: PublicUser = {
+  id: "u101",
+  name: "Kesavan",
+  email: "kesavan@example.com"
+};
+
+
+
+Readonly<T>
+
+We previously saw:
+
+interface Product {
+  readonly id: string;
+  name: string;
+}
+
+You can make the entire object readonly:
+
+type ReadonlyProduct = Readonly<Product>;
+
+Now all properties become readonly.
+
+const product: ReadonlyProduct = {
+  id: "p1",
+  name: "Laptop"
+};
+
+product.id = "p2";   // ❌
+product.name = "PC"; // ❌
+
+
+
+
+interface User {
+  id: string;
+  name: string;
+  email: string;
+  password: string;
+  age: number;
+  createdAt: Date;
+}
+Create User
+
+Maybe the client sends:
+
+type CreateUser = Omit<User, "id" | "createdAt">;
+
+
+
+
 
 
 
