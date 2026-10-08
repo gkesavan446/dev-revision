@@ -517,6 +517,15 @@ Maybe the client sends:
 type CreateUser = Omit<User, "id" | "createdAt">;
 
 
+ReactNode is solely for children properties
+
+changeEvent
+mouseEvent
+FormEvent
+
+HTMLInputElement
+HTMLFormElement
+HTMLSelectElement
 
 
 
