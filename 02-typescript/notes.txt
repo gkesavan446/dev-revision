@@ -517,6 +517,9 @@ Maybe the client sends:
 type CreateUser = Omit<User, "id" | "createdAt">;
 
 
+Genrics
+
+
 ReactNode is solely for children properties
 
 changeEvent
