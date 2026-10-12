@@ -5,10 +5,7 @@ function useLocalStorage<T>(key: string, initialValue: T) {
   const [value, setValue] = useState<T>(() => {
     try {
       const savedValue = localStorage.getItem(key);
-
-      return savedValue !== null
-        ? (JSON.parse(savedValue) as T)
-        : initialValue;
+      return savedValue !== null ? (JSON.parse(savedValue) as T) : initialValue;
     } catch {
       return initialValue;
     }

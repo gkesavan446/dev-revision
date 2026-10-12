@@ -23,10 +23,10 @@ function App() {
   const [priority, setPriority] = useState<Todo["priority"]>("medium");
 
   const priorityOrder = {
-  high: 3,
-  medium: 2,
-  low: 1,
-};
+        high: 3,
+        medium: 2,
+        low: 1,
+      };
 
   function handleSaveTodo() {
   const trimmedTitle = title.trim();
@@ -34,14 +34,7 @@ function App() {
   if (!trimmedTitle) return;
 
   if (editingId !== null) {
-    setTodos((prevTodos) =>
-      prevTodos.map((todo) =>
-        todo.id === editingId
-          ? { ...todo, title: trimmedTitle }
-          : todo
-      )
-    );
-
+  setTodos((prevTodos) => prevTodos.map((todo) => todo.id === editingId ? { ...todo, title: trimmedTitle } : todo ));                        
     setEditingId(null);
   } else {
     const newTodo: Todo = {
@@ -51,10 +44,8 @@ function App() {
       priority: priority,
       createdAt: Date.now(),
     };
-
     setTodos((prevTodos) => [...prevTodos, newTodo]);
   }
-
   setTitle("");
 }
 

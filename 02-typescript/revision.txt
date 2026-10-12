@@ -1,0 +1,978 @@
+# TYPESCRIPT + REACT — QUICK REVISION NOTES
+
+Purpose: Quick recall before interviews and while building projects.
+Approach: What it means → When to use it → Example.
+
+==================================================
+PART 1: TYPESCRIPT FUNDAMENTALS
+===============================
+
+1. WHAT IS TYPESCRIPT?
+
+---
+
+TypeScript is JavaScript with a static type system. It detects many mistakes during development and compiles to JavaScript.
+
+Use case: Catch incorrect function arguments or object properties before running the app.
+
+let age: number = 25;
+let username: string = "Kesavan";
+
+age = "25"; // Type error
+
+Remember: Types are checked during development; TypeScript types do not automatically validate runtime data.
+
+2. TYPE INFERENCE
+
+---
+
+TypeScript can infer a variable's type from its initial value.
+
+Use case: Avoid writing unnecessary type annotations.
+
+let name = "Kesavan"; // inferred as string
+let count = 10;       // inferred as number
+
+count = "ten"; // Type error
+
+3. BASIC TYPES
+
+---
+
+string  - Text
+number  - Integers and decimals
+boolean - true or false
+null    - Intentional absence of a value
+undefined - Value not assigned or missing
+
+let title: string = "Todo";
+let total: number = 10;
+let isDone: boolean = false;
+
+4. ARRAYS AND TUPLES
+
+---
+
+Array: A collection of values of a particular type.
+
+let scores: number[] = [80, 90, 95];
+let names: Array<string> = ["A", "B"];
+
+Tuple: An array with a defined type and position for each element.
+
+let user: [number, string] = [1, "Kesavan"];
+
+Use arrays for lists of tasks or users. Use tuples when positions have specific meanings.
+
+5. OBJECT TYPES
+
+---
+
+Define the expected structure of an object.
+
+let user: { name: string; age: number } = {
+name: "Kesavan",
+age: 25
+};
+
+Use case: Represent a user, product, API response, or configuration.
+
+6. TYPE ALIAS VS INTERFACE
+
+---
+
+type: Defines aliases for types, unions, primitives, objects, and more.
+interface: Commonly defines object shapes and can be extended or merged.
+
+type Status = "pending" | "completed";
+
+interface User {
+id: string;
+name: string;
+}
+
+Use case: Define reusable models such as User, Product, or Todo.
+
+7. OPTIONAL PROPERTIES
+
+---
+
+The ? symbol means a property or parameter may be omitted.
+
+interface User {
+name: string;
+email?: string;
+}
+
+function greet(name: string, prefix?: string): string {
+return `${prefix ?? "Hi"} ${name}`;
+}
+
+Use case: Optional profile fields, optional filters, or optional function arguments.
+
+8. UNION TYPES
+
+---
+
+A value can belong to one of several types.
+
+let id: string | number = "u1";
+id = 10;
+
+Use case: API identifiers or values that support multiple representations.
+
+9. LITERAL UNION TYPES
+
+---
+
+Restrict a value to specific permitted values.
+
+type Priority = "low" | "medium" | "high";
+
+let priority: Priority = "high";
+
+Use case: Todo priority, order status, tabs, filters, and sort options.
+
+Prefer literal unions when a value has a small, fixed set of strings.
+
+10. ENUMS
+
+---
+
+Enums define named constants.
+
+enum Status {
+Pending = "pending",
+Completed = "completed"
+}
+
+Use case: Named sets of values in codebases that use enums.
+
+Alternative:
+
+type Status = "pending" | "completed";
+
+Remember: Literal unions are a simple option for React state when only a few string values are allowed.
+
+11. ANY VS UNKNOWN
+
+---
+
+any: Disables most type checking for that value.
+unknown: Requires checking or narrowing before using the value safely.
+
+let first: any = "hello";
+first.toFixed(); // Compiles, but fails at runtime.
+
+let second: unknown = "hello";
+
+if (typeof second === "string") {
+console.log(second.toUpperCase());
+}
+
+Use case: Treat caught errors and untrusted values as unknown, then narrow their types.
+
+12. VOID VS NEVER
+
+---
+
+void: A function does not provide a meaningful return value.
+never: A function cannot complete normally because it always throws or never ends.
+
+function logMessage(): void {
+console.log("Hello");
+}
+
+function fail(): never {
+throw new Error("Failed");
+}
+
+Use case: void for event handlers; never for functions that always throw.
+
+13. TYPE NARROWING
+
+---
+
+Narrowing uses checks to determine a more specific type.
+
+function printId(id: string | number): void {
+if (typeof id === "string") {
+console.log(id.toUpperCase());
+} else {
+console.log(id.toFixed(0));
+}
+}
+
+Use case: Handle union types safely.
+
+14. TYPE ASSERTION
+
+---
+
+A type assertion tells TypeScript what you believe a value's type is.
+
+const input = document.querySelector("#name") as HTMLInputElement;
+
+Use case: Access an element's value when you know its actual type.
+
+Warning: Assertions do not validate values at runtime. Prefer safe checks when the value is uncertain.
+
+15. TYPEOF OPERATOR
+
+---
+
+JavaScript's typeof checks a value's runtime type.
+
+if (typeof value === "string") {
+console.log(value.toUpperCase());
+}
+
+TypeScript can use the check to narrow the type.
+
+16. KEYOF
+
+---
+
+keyof produces a union of an object's property names.
+
+interface User {
+name: string;
+age: number;
+}
+
+type UserKey = keyof User;
+// "name" | "age"
+
+Use case: Build reusable functions that accept valid object keys.
+
+17. INDEXED ACCESS TYPES
+
+---
+
+Access a property type using its key.
+
+interface User {
+name: string;
+age: number;
+}
+
+type UserName = User["name"]; // string
+
+Use case: Reuse an existing model's property type without duplicating it.
+
+18. UTILITY TYPES
+
+---
+
+Partial<T>  - Makes all properties optional.
+Required<T> - Makes all properties required.
+Pick<T, K>  - Selects specified properties.
+Omit<T, K>  - Removes specified properties.
+Readonly<T> - Makes properties readonly at the type level.
+Record<K, V> - Creates an object type with keys K and values V.
+
+interface User {
+id: string;
+name: string;
+email: string;
+}
+
+type UserUpdate = Partial<Omit<User, "id">>;
+type UserPreview = Pick<User, "id" | "name">;
+type PriorityOrder = Record<"low" | "medium" | "high", number>;
+
+Use case: Update payloads, preview data, and lookup objects.
+
+19. GENERICS
+
+---
+
+Generics let a function or type work with different types while preserving type information.
+
+function identity<T>(value: T): T {
+return value;
+}
+
+identity<string>("hello");
+identity<number>(10);
+
+Use case: Reusable functions, API utilities, custom hooks, and reusable components.
+
+20. GENERIC CONSTRAINTS
+
+---
+
+extends restricts which types a generic can accept.
+
+function getLength<T extends { length: number }>(value: T): number {
+return value.length;
+}
+
+Use case: Accept strings and arrays, but require a length property.
+
+21. FUNCTION TYPES
+
+---
+
+Define parameter and return types.
+
+function add(a: number, b: number): number {
+return a + b;
+}
+
+type DeleteHandler = (id: string) => void;
+
+Use case: Type reusable functions and callback props.
+
+22. FUNCTION OVERLOADS
+
+---
+
+Overloads describe multiple supported call signatures.
+
+function format(value: string): string;
+function format(value: number): string;
+function format(value: string | number): string {
+return String(value);
+}
+
+Use case: A function supports multiple input types with different call signatures.
+
+Use overloads only when they improve clarity; unions are simpler for many cases.
+
+23. PROMISE AND ASYNC/AWAIT
+
+---
+
+Promise<T> represents a promise that resolves to a value of type T.
+
+async function getUsers(): Promise<User[]> {
+const response = await fetch("/api/users");
+
+if (!response.ok) {
+throw new Error("Failed to load users");
+}
+
+return response.json() as Promise<User[]>;
+}
+
+Promise<void> means the resolved result has no meaningful value.
+
+async function deleteUser(id: string): Promise<void> {
+const response = await fetch(`/api/users/${id}`, {
+method: "DELETE"
+});
+
+if (!response.ok) {
+throw new Error("Delete failed");
+}
+}
+
+Use case: API requests, database operations, and asynchronous actions.
+
+Remember:
+
+* async functions return Promises.
+* await waits for a Promise to settle.
+* A rejected Promise can be caught with try/catch.
+* fetch usually rejects on network failures, not simply on HTTP 404/500.
+* A TypeScript annotation does not validate JSON at runtime.
+
+24. ERROR HANDLING WITH UNKNOWN
+
+---
+
+Use unknown for caught errors because an error value is not guaranteed to be an Error instance.
+
+try {
+// perform an operation
+} catch (error: unknown) {
+if (error instanceof Error) {
+console.error(error.message);
+} else {
+console.error("Unexpected error");
+}
+}
+
+Use case: Safely display or log error messages.
+
+==================================================
+PART 2: REACT WITH TYPESCRIPT
+=============================
+
+25. TYPED PROPS
+
+---
+
+Props pass data from a parent component to a child component.
+
+interface UserCardProps {
+name: string;
+age: number;
+}
+
+function UserCard({ name, age }: UserCardProps) {
+return <p>{name} is {age} years old</p>;
+}
+
+Use case: Reusable cards, forms, buttons, and list items.
+
+26. OPTIONAL PROPS AND DEFAULT VALUES
+
+---
+
+interface ButtonProps {
+label: string;
+disabled?: boolean;
+}
+
+function Button({ label, disabled = false }: ButtonProps) {
+return <button disabled={disabled}>{label}</button>;
+}
+
+Use case: Make component options optional while providing sensible defaults.
+
+27. CHILDREN WITH REACTNODE
+
+---
+
+ReactNode represents content React can render.
+
+import type { ReactNode } from "react";
+
+interface SectionProps {
+title: string;
+children: ReactNode;
+}
+
+function Section({ title, children }: SectionProps) {
+return ( <section> <h2>{title}</h2>
+{children} </section>
+);
+}
+
+Usage:
+
+<Section title="My Tasks">
+  <p>Review TypeScript</p>
+</Section>
+
+Use case: Reusable layouts, cards, sections, dialogs, and wrappers.
+
+28. TYPED useState
+
+---
+
+Specify the state type when TypeScript cannot infer the complete type.
+
+const [count, setCount] = useState<number>(0);
+
+const [user, setUser] = useState<User | null>(null);
+
+const [todos, setTodos] = useState<Todo[]>([]);
+
+Use case: Store numbers, API data, arrays, and values that may initially be null.
+
+29. LITERAL UNION STATE
+
+---
+
+type Filter = "all" | "pending" | "completed";
+
+const [filter, setFilter] = useState<Filter>("all");
+
+Use case: Filters, tabs, sorting modes, and status selectors.
+
+30. TYPED EVENT HANDLERS
+
+---
+
+ChangeEvent<HTMLInputElement>: Input change event.
+FormEvent<HTMLFormElement>: Form submission event.
+MouseEvent<HTMLButtonElement>: Button mouse event.
+
+import type { ChangeEvent, FormEvent } from "react";
+
+function handleChange(event: ChangeEvent<HTMLInputElement>): void {
+setTitle(event.target.value);
+}
+
+function handleSubmit(event: FormEvent<HTMLFormElement>): void {
+event.preventDefault();
+// Validate and submit the form.
+}
+
+Use case: Typed input fields, forms, buttons, and other DOM interactions.
+
+31. HTML ELEMENT TYPES
+
+---
+
+HTMLInputElement represents an HTML input element.
+HTMLButtonElement represents a button.
+HTMLFormElement represents a form.
+
+const inputRef = useRef<HTMLInputElement>(null);
+
+Use case: Focus an input, access an element's value, or interact with a specific DOM element.
+
+32. useEffect
+
+---
+
+useEffect runs side effects such as fetching data or subscribing to external systems.
+
+useEffect(() => {
+// Side effect
+
+return () => {
+// Cleanup when needed
+};
+}, []);
+
+Use case: Fetch data on mount, synchronize with external systems, and clean up subscriptions.
+
+Remember:
+
+* [] means the effect has no reactive dependencies.
+* Include reactive values used by the effect in its dependency array.
+* Effects run on the client; they are not for calculating ordinary derived UI state.
+* React Strict Mode may run an extra setup/cleanup cycle in development.
+
+33. FETCH DATA INSIDE useEffect
+
+---
+
+Use an inner async function because the effect callback itself should not be async.
+
+useEffect(() => {
+async function loadUsers() {
+try {
+const response = await fetch("/api/users");
+
+```
+  if (!response.ok) {
+    throw new Error("Request failed");
+  }
+
+  const data: User[] = await response.json();
+  setUsers(data);
+} catch (error: unknown) {
+  setError(
+    error instanceof Error ? error.message : "Unknown error"
+  );
+} finally {
+  setLoading(false);
+}
+```
+
+}
+
+loadUsers();
+}, []);
+
+Use case: Load data when a component mounts.
+
+Remember: Type annotations on API data do not validate the actual response. Validate untrusted data when runtime correctness matters.
+
+34. useRef
+
+---
+
+Stores a mutable reference without triggering a re-render when it changes.
+
+const inputRef = useRef<HTMLInputElement>(null);
+
+function focusInput(): void {
+inputRef.current?.focus();
+}
+
+Use case: Focus inputs, interact with DOM elements, or store mutable values that do not drive rendering.
+
+35. CONTEXT API
+
+---
+
+Context shares data across components without passing props through every intermediate component.
+
+interface AuthContextValue {
+user: User | null;
+logout: () => void;
+}
+
+Use case: Authentication state, theme, and shared application settings.
+
+Remember: Provide a typed context and a custom hook that checks whether the context value exists.
+
+36. CUSTOM HOOKS
+
+---
+
+Custom hooks reuse stateful React logic. Their names should begin with "use".
+
+function useCounter() {
+const [count, setCount] = useState(0);
+
+return { count, setCount };
+}
+
+Use case: Reuse form logic, local storage, data fetching, or shared state behavior.
+
+37. GENERIC CUSTOM HOOKS
+
+---
+
+Generics allow a hook to work with different data types.
+
+function useData<T>(initialData: T) {
+const [data, setData] = useState<T>(initialData);
+
+return { data, setData };
+}
+
+Use case: Reusable state or data-fetching logic for users, products, and todos.
+
+38. CONTROLLED INPUTS
+
+---
+
+React state controls the input's value.
+
+const [title, setTitle] = useState("");
+
+<input
+value={title}
+onChange={(event) => setTitle(event.target.value)}
+/>
+
+Use case: Forms with validation, editing, and predictable state.
+
+39. FORM SUBMISSION
+
+---
+
+Prevent the browser's default form submission and handle it in React.
+
+function handleSubmit(event: FormEvent<HTMLFormElement>): void {
+event.preventDefault();
+
+if (!title.trim()) return;
+
+// Add the task.
+}
+
+Use case: Login forms, registration, search, and Todo creation.
+
+40. LISTS AND KEYS
+
+---
+
+Use map() to render arrays. Give each element a stable, unique key.
+
+{todos.map((todo) => (
+
+  <li key={todo.id}>{todo.title}</li>
+))}
+
+Use case: Render products, users, messages, and tasks.
+
+Avoid array indexes as keys when items can be inserted, removed, or reordered.
+
+41. CONDITIONAL RENDERING
+
+---
+
+Render UI according to state.
+
+{isLoading && <p>Loading...</p>}
+{error && <p>{error}</p>}
+
+Use case: Loading indicators, error messages, empty states, and conditional actions.
+
+42. DERIVED STATE
+
+---
+
+Calculate values from existing state rather than storing duplicate state.
+
+const completedCount = todos.filter(
+(todo) => todo.completed
+).length;
+
+Use case: Counters, filtered lists, summaries, and totals.
+
+43. FILTERING AND SORTING
+
+---
+
+filter() selects matching items; sort() orders items.
+
+const visibleTodos = todos
+.filter((todo) => {
+if (filter === "completed") return todo.completed;
+if (filter === "pending") return !todo.completed;
+return true;
+})
+.toSorted((a, b) => b.createdAt - a.createdAt);
+
+Use case: Search results, task status filters, and sorting tables.
+
+Note: toSorted() returns a new array. If using sort(), copy the array first to avoid mutating state.
+
+44. IMMUTABLE STATE UPDATES
+
+---
+
+Create a new array or object rather than mutating existing state.
+
+setTodos((previous) =>
+previous.map((todo) =>
+todo.id === id
+? { ...todo, completed: !todo.completed }
+: todo
+)
+);
+
+Use case: Toggle completion, edit tasks, update objects, or delete list items.
+
+45. LOCAL STORAGE
+
+---
+
+localStorage persists strings in the browser across page reloads.
+
+localStorage.setItem("theme", "dark");
+
+const theme = localStorage.getItem("theme");
+
+For objects or arrays:
+
+localStorage.setItem("todos", JSON.stringify(todos));
+
+const saved = localStorage.getItem("todos");
+const todos = saved ? JSON.parse(saved) : [];
+
+Use case: Persist Todo data or simple user preferences.
+
+Remember:
+
+* JSON.stringify converts data to a string.
+* JSON.parse converts a string back to a JavaScript value.
+* Handle invalid stored data when necessary.
+* localStorage is browser-only; account for this in server-rendered frameworks such as Next.js.
+
+46. REUSABLE COMPONENTS
+
+---
+
+Break UI into small components with clear responsibilities.
+
+Example:
+App
+|-- TodoForm
+|-- TodoFilters
+|-- TodoList
+|    |-- TodoItem
+|-- Section
+
+Use case: Easier maintenance, reuse, testing, and separation of concerns.
+
+==================================================
+PART 3: TODO PROJECT — TYPE DESIGN
+==================================
+
+47. DEFINE THE TODO MODEL
+
+---
+
+interface Todo {
+id: string;
+title: string;
+completed: boolean;
+priority: "low" | "medium" | "high";
+createdAt: number;
+}
+
+type TodoFilter = "all" | "pending" | "completed";
+type TodoSort = "newest" | "oldest" | "priority";
+
+Why it matters:
+
+* Every Todo has a predictable structure.
+* Invalid priority or filter values are rejected by TypeScript.
+* The same type can be reused across components and services.
+
+48. PRIORITY LOOKUP OBJECT
+
+---
+
+const priorityOrder = {
+high: 3,
+medium: 2,
+low: 1
+};
+
+Sort by priority:
+
+const sorted = [...todos].sort(
+(a, b) => priorityOrder[b.priority] - priorityOrder[a.priority]
+);
+
+Use case: Map fixed labels to scores without requiring an enum.
+
+49. API SERVICE SEPARATION
+
+---
+
+Keep API logic outside UI components.
+
+async function fetchTodos(): Promise<Todo[]> {
+// Fetch, check response, parse and map the data.
+}
+
+Use case: Keep network requests reusable and easier to test.
+
+Important: Convert external API data into your application's model when their structures differ. Validate external data when required.
+
+50. LOADING, ERROR AND DATA STATES
+
+---
+
+const [data, setData] = useState<Todo[]>([]);
+const [loading, setLoading] = useState(false);
+const [error, setError] = useState<string | null>(null);
+
+Use case: Handle the normal, loading, success, and failure states of an API request.
+
+Remember:
+
+* [] means no items.
+* null may mean no error or no selected value, depending on the model.
+* An empty array does not automatically mean the request failed.
+
+==================================================
+PART 4: INTERVIEW QUICK RECALL
+==============================
+
+51. WHY TYPESCRIPT IN REACT?
+
+---
+
+Catches many type mistakes, improves autocomplete, documents component contracts, and makes refactoring safer.
+
+52. TYPE ALIAS OR INTERFACE?
+
+---
+
+Both can describe object shapes. Use interfaces commonly for object contracts and type aliases for unions and more complex type expressions. Either can work for many object models.
+
+53. ANY OR UNKNOWN?
+
+---
+
+Prefer unknown for untrusted values because it forces checks before use.
+
+54. PROMISE<T> OR PROMISE<void>?
+
+---
+
+Promise<T>: Resolves to a value of type T.
+Promise<void>: Resolves without a meaningful value.
+
+55. WHY NOT MAKE useEffect ASYNC?
+
+---
+
+The effect callback should return nothing or a cleanup function, not a Promise. Define an async function inside the effect and call it.
+
+56. WHY USE REACTNODE?
+
+---
+
+To type flexible renderable content passed as children to reusable components.
+
+57. WHY USE CHANGE EVENT TYPES?
+
+---
+
+They provide appropriate event and target types for specific DOM elements, improving type safety and autocomplete.
+
+58. WHY USE GENERICS?
+
+---
+
+To reuse code across multiple types without losing information about those types.
+
+59. WHY USE A CUSTOM HOOK?
+
+---
+
+To reuse stateful logic while keeping components easier to read.
+
+60. WHY CHECK response.ok?
+
+---
+
+fetch() does not reject solely because the HTTP response is 4xx or 5xx. Check response.ok to handle unsuccessful HTTP responses explicitly.
+
+61. WHAT DOES TYPE ASSERTION DO?
+
+---
+
+It tells TypeScript to treat a value as a specified type. It does not convert or validate the value at runtime.
+
+62. WHAT IS THE DIFFERENCE BETWEEN STATE AND REF?
+
+---
+
+State changes trigger a re-render. Updating a ref does not trigger a re-render.
+
+63. WHY A STABLE LIST KEY?
+
+---
+
+React uses keys to identify list items across renders, helping it track insertions, deletions, and reordering correctly.
+
+64. WHAT IS DERIVED STATE?
+
+---
+
+A value calculated from existing props or state instead of stored separately. This avoids duplicate state that can become inconsistent.
+
+==================================================
+PART 5: FINAL REVISION CHECKLIST
+================================
+
+[ ] Primitive and object types
+[ ] Arrays and tuples
+[ ] Type aliases and interfaces
+[ ] Optional properties and parameters
+[ ] Unions and literal unions
+[ ] any, unknown, void, and never
+[ ] Narrowing and type assertions
+[ ] keyof, typeof, indexed access types
+[ ] Partial, Pick, Omit, Record, Readonly
+[ ] Generics and constraints
+[ ] Function signatures and overloads
+[ ] Promise<T>, async/await, and error handling
+[ ] Typed props and optional props
+[ ] ReactNode and children
+[ ] Typed useState
+[ ] ChangeEvent, FormEvent, and DOM element types
+[ ] useEffect and API requests
+[ ] useRef
+[ ] Context API and custom hooks
+[ ] Controlled forms
+[ ] Lists, keys, and conditional rendering
+[ ] Immutable state updates
+[ ] Filtering, sorting, and derived state
+[ ] Local storage and browser-only APIs
+[ ] Reusable components and API service separation
+[ ] TypeScript compilation and production build
+
+Commands to verify the project:
+
+npx tsc --noEmit
+npm run build
+
+END OF QUICK REVISION NOTES
