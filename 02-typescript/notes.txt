@@ -533,7 +533,7 @@ HTMLSelectElement
 
 
 
-
+give me the typescript notes in brief of all topics with small example, make it brief and precise
 
 
 
