@@ -28,7 +28,7 @@ console.log(quantity, typeof quantity); // 4 number
 console.log(Number("25"));       // 25
 console.log(Number("25.5"));     // 25.5
 console.log(Number("hello"));    // NaN
-console.log(parseInt("25px"));   // 25
+console.log(parseInt("25"));   // 25
 console.log(parseFloat("25.5")); // 25.5
 
 // BOOLEAN CONVERSION
