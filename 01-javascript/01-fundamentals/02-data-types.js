@@ -87,3 +87,4 @@ separate object using spread syntax and demonstrate the difference.
 
 // Write your solution below.
 
+//1

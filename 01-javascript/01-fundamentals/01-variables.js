@@ -86,3 +86,6 @@ quantity changes. Explain why you chose let or const for every variable.
 
 // Write your solution below.
 
+//1
+
+
