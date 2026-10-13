@@ -85,4 +85,4 @@ calculate the final total. Display an error if any converted value is NaN.
 */
 
 // Write your solution below.
-
+//1
