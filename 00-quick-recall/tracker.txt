@@ -1,0 +1,86 @@
+HTML
+[ ] Document structure, elements and attributes
+[ ] Semantic HTML and accessibility
+[ ] Forms, input types and native validation
+[ ] Tables, lists, links and media
+[ ] SEO basics, metadata and script loading
+[ ] Practical markup and debugging
+
+CSS
+[ ] Cascade, inheritance, specificity and box model
+[ ] Display, positioning, stacking context and overflow
+[ ] Flexbox and Grid
+[ ] Responsive design, media queries and units
+[ ] Pseudo-classes, pseudo-elements and selectors
+[ ] Transitions, layout debugging and practical UI
+
+JavaScript
+[ ] Types, coercion, equality and truthy/falsy values
+[ ] Scope, hoisting, TDZ and closures
+[ ] Functions, this, call/apply/bind and prototypes
+[ ] Arrays, objects, MRF methods and immutability
+[ ] Destructuring, spread/rest and modules
+[ ] Promises, async/await and error handling
+[ ] Event loop, microtasks and macrotasks
+[ ] DOM, event propagation, delegation and browser storage
+[ ] Recursion, debounce, throttle and coding problems
+
+React
+[ ] JSX, components, props, state and keys
+[ ] Rendering, reconciliation and component lifecycle
+[ ] useState, useEffect, useRef and useMemo/useCallback
+[ ] Custom hooks, Context API and state management
+[ ] Forms, controlled/uncontrolled inputs and validation
+[ ] API integration, loading/error states and routing
+[ ] Performance, stale closures and effect cleanup
+[ ] Testing concepts and practical debugging
+
+TypeScript
+[ ] Type inference, annotations and primitive types
+[ ] Arrays, tuples, objects and function types
+[ ] Interfaces, type aliases and unions
+[ ] Narrowing, generics and utility types
+[ ] any, unknown, never and strict compiler options
+[ ] Typing React props, events, hooks and API data
+
+Tailwind CSS and shadcn/ui
+[ ] Utility classes, responsive variants and state variants
+[ ] Reusable styles and component customization
+[ ] shadcn/ui setup, composition and accessibility
+[ ] Tailwind vs Bootstrap vs regular CSS
+
+Node.js and Express.js
+[ ] Node runtime, modules, npm and environment variables
+[ ] Event loop, asynchronous I/O and error handling
+[ ] REST principles, HTTP methods and status codes
+[ ] Express routing, middleware and controllers
+[ ] Validation, centralized error handling and async flows
+[ ] JWT, authentication vs authorization and security
+[ ] CORS, cookies, pagination, filtering and API debugging
+
+MongoDB and Mongoose
+[ ] CRUD, schemas, validation and data modeling
+[ ] Embedding vs referencing and populate
+[ ] Indexes, query performance and explain plans
+[ ] Aggregation pipeline and common operators
+[ ] lean, pagination, sorting and filtering
+[ ] Transactions, error handling and MongoDB trade-offs
+
+PostgreSQL and Prisma
+[ ] SQL CRUD, joins, grouping and subqueries
+[ ] CTEs, window functions and conditional expressions
+[ ] Constraints, normalization and relationships
+[ ] Indexes, EXPLAIN, transactions and ACID
+[ ] Prisma schema, models, relations and migrations
+[ ] CRUD, nested writes, relation queries and transactions
+[ ] Parameterized queries, error handling and ORM trade-offs
+
+Full-stack and professional readiness
+[ ] Authentication flow from UI to database
+[ ] Protected UI and server-side authorization
+[ ] API integration, validation and consistent errors
+[ ] Debugging, logging and environment configuration
+[ ] Git workflow, deployment and troubleshooting
+[ ] Project architecture and technical decision explanations
+[ ] Resume, self-introduction and behavioral questions
+[ ] Timed coding round and mixed mock interview
