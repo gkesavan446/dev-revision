@@ -84,3 +84,6 @@ Full-stack and professional readiness
 [ ] Project architecture and technical decision explanations
 [ ] Resume, self-introduction and behavioral questions
 [ ] Timed coding round and mixed mock interview
+
+
+
