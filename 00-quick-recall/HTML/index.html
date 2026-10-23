@@ -11,6 +11,46 @@
 <body>
     <h1 id="title">Hello</h1>
     <h2>Welcome</h2>
+
+    <form method="post">
+        <label for="fname">Name</label>
+        <input type="text" id="fname" name="fname" required>
+        <label for="email">E-Mail</label>
+        <input type="email" id="email" name="email" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <form action="/register" method="post">
+        <label>Email</label>
+        <input type="email" id="email" required>
+        <button>Register</button>
+    </form>
+
+
+
+
+
+    <dl>
+        <dt>HTML</dt>
+        <dd>HyperText Markup Language, the standard language for web pages.</dd>
+
+        <dt>CSS</dt>
+        <dd>Cascading Style Sheets, used to style and layout web pages.</dd>
+    </dl>
+    <!-- 
+        Write HTML for a link to https://example.com that opens in a new tab safely,
+        and an image of a laptop with appropriate alternative text.
+        Then create an ordered list of three learning topics. -->
+
+    <a href="http://example.com" target="_blank" rel="noopener">link</a>
+    <img src="./images/laptop.png" alt="laptop">
+    <ol>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ol>
+
+
 </body>
 
 </html>
