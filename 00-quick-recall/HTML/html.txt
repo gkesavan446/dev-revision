@@ -1,0 +1,9 @@
+How a browser renders a web page
+
+1. Receive HTML
+2. Parse HTML
+3. parse CSS
+4. render tree
+5. layer -> size and position
+6. paint
+7. composite 
