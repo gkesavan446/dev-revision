@@ -13,7 +13,6 @@ become harder to maintain	            Better tooling and maintainability
 Browser/Node can execute it directly	Usually compiled/transpiled to JavaScript
 
 
-
 This is called type inference.
 
 So you don't necessarily need:
