@@ -22,6 +22,7 @@ You should be able to explain and code:
  Throttling
  Recursion
  Basic polyfills
+ call, apply and bind
 
 You don't need extremely advanced JavaScript, but you should be able to write code without depending on Google.
 
