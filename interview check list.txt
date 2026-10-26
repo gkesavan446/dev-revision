@@ -50,6 +50,7 @@ Be comfortable with:
  Parent → child communication
  Child → parent communication
  Redux/Zustand basics
+ lazy loading 
 
 You should also be able to explain why you would use a hook, not just its syntax.
 
