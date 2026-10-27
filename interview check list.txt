@@ -2,6 +2,10 @@
 
 You should be able to explain and code:
 
+what are empty elements
+cell padding vs cell spacing
+image map
+
  var, let, const
  Scope and hoisting
  Closures
