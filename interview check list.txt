@@ -521,3 +521,29 @@ Not:
 Learn another technology → learn another technology → learn another technology.
 
 You already have enough material to interview for a MERN Stack Developer role. The main task now is making sure you can recall and explain what you already know under interview pressure.
+
+
+
+Q1: The default behaviour is content-box, which would be calculate width of the content alone, if we add 
+left/right padding or left/right border that would be extra space, whereas in border-box the width would 
+specified with in the mentioned width, if padding or border increased the content would get reduced
+
+Q2: In CSS there is a rule for cascade the element, which is based on specificity, these specificity
+ get calculated and paint accordingly, in our case, id as more specificity followed by class and
+  finally element selector, so id, class and element is order
+
+Q3: If the two different selectors have pointing same element and with equal specificity, the
+ latest one would get executed, regarding the !important that would be strictly executed no
+matter what specifity is that would executed, about the inline style, this the high specificity
+ compare with bothj internal CSS and external CSS
+
+Q4: There are several properties that inherit their values from parent elements, that are
+ fontsize, font family, color and few others, margin wont inherit from their parent element
+
+Q5: first block level elements starts in a new line as it takes the entire width of the document,
+ inline element takes only the with of the content and inline-block which is an hybrid one that
+ mostly act as inline only differnce is that respect margin and width of the other element,
+ display none is to make the element out of document not only visibility
+
+Q6: Here, we should the change the box-sizing from its default behaviour of content-box to border-box,
+ so that the total outer width would exactly 300px as specified
