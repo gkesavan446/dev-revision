@@ -585,6 +585,50 @@ Q5:
    grid-template-colums: 1fr
 }
 
-Q6:
+Q6: refer css folder
 
+
+
+Q1: Based on this example, that paragraph turned to red, because of id has high
+ specificity compare to both element selector and class selector
+
+Q2: .card p {} this selector selects all the p elements inside the .card, even 
+the nested one, .card > p {} this selects only the immidiate p child of the .card 
+element, h2 + p {} is to select only the adjacent p that comes after the h2, it skips 
+every other p even after next to it, h2 ~ p {} is select all the sibling p of h2 that
+ comes with in same parent element
+
+Q3: :hover pseudo class used to make changes when cursor hover the element, :focus 
+pseudo class is to function when the element is on focus state example input element
+focus, ::before is the pseudo element this utility feature used to select or perform 
+operation for the element before and similary ::after for the selected element after
+
+Q4: input[type="email"]{} this selects only the input elements that have type as email,
+ a[target="_blank"] selector selects only the a tag that has target="_blank" attribute in it,
+  button:disabled pseudo class perform action when the button disable is activated
+
+Q5: this is because of specificity, as we know id has more specificity that element and 
+psuedo selector, even the combination of both p and hover as less specificity than the 
+id selector, so it would the color remain red, to make change instead of p we replace it with #message:hover
+
+Q6: 
+
+.card {
+   background-color: light-gray
+}
+
+.card > .container {
+   padding: 16px
+}
+
+.links:hover {
+   color: blue
+}
+
+button:disabled {
+   background-color: gray;
+   color: white;
+   cursor: not-allowed;
+   pointer-events: none;
+}
 
