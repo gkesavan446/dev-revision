@@ -1,0 +1,17 @@
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(40, 40, 241);
+    color: whitesmoke;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+li {
+    list-style-type: none;
+}
