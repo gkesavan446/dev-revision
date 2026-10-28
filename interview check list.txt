@@ -547,3 +547,44 @@ Q5: first block level elements starts in a new line as it takes the entire width
 
 Q6: Here, we should the change the box-sizing from its default behaviour of content-box to border-box,
  so that the total outer width would exactly 300px as specified
+
+
+
+ Q1: static is the default value of the position property as it is in the normal flow, relative position
+  is when you want to move a element from its original position but still its original space is remain 
+  reserved, absolute position is when we want to move a element that would behave according to the
+   nearest relative parent, based on that it changes its position, fixed position is to fix a element
+    in a viewport or a page where it needs to be fixed without moving, sticky position will also behave
+     like fixed when the scroll thresold meets the value its stays there
+
+Q2: In flex box, justify-content is to access the main axis and align items is to access cross axis,
+ justify content is mostly used to align horizontaly when flex-direction in row, it would behave 
+ opposite when flex direction is column, simlarly the align-items is to move the items vertically 
+ which is cross axis and it would behave opposite when flex direction is column
+
+Q3: The item refused to shrink because in flex, default value of min-content is 0 so that it wont 
+allow this to shirnk below than the parent width, we can fix this by adding min-width: 0, so that
+ it would shrink below and fit inside the parent, min-width: 0 is usefull for shrinking large text
+  lines and when a container needs to fix inside another flex container
+
+Q4: CSS Grid and flexbox are both used to make the website responsive, only differnce is that 
+flexbox is 1-D dimensional, is either be row or column as we specify, whereas is Grid is 2-D
+ dimensional that can be aligned both row and column, for example flex can be usefull in navbar
+  as it mostly used for row, where as grid can be e-commerce page, there we design pages or layouts
+   with multiple columns and rows
+
+Q5:
+
+.container {
+   display: grid:
+   grid-template-colums: repeat(3, 1fr)
+}
+
+@media query (max-width < 600px){
+   display: grid;
+   grid-template-colums: 1fr
+}
+
+Q6:
+
+
