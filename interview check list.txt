@@ -632,3 +632,46 @@ button:disabled {
    pointer-events: none;
 }
 
+
+
+
+
+
+
+
+Q1: px, %, em, rem, vw and vh each have their certain pros and cons, first px is to standarised
+ value for the element that wont change as its remains constant, % is for adapditive size as per
+  the viewport or device that takes the width with what mentioned and available, em is relative 
+  to its parent where it inherits from it, rem is root elements it inherits value from its root 
+  of the document, vw is viewport width that to calculate width of the viewport that depends upon
+   the device width and adapt for it, viewport height is similar to vw that is for height of the page 
+
+Q2:  min-width and max width are two different approaches for designing a page for multiple devices,
+ min-width is to apply when the device with is above 768px, only then it would apply, max-width is
+  for width that apply only when the device with upto 767px.
+
+Q3: I choose Grid, because grid is 2-D two dimensional that calculates both row and column, grid
+ is ideal than the flex, we can acheive the same result using flex also but grid is the recommended
+  way of doing it with less code than flex
+
+Q4: by add min-width: 0 can prevent this and overflow-wrap: anywhere is recommended to break the
+ large lines into multiple lines within the container, by avoiding overflow, overflow-x: auto for
+  intentionally get the horizontal scroll bar, these are all works when height is auto
+
+Q5: width: 100% that occupies entire width of the avaliable space in the container or website, 
+max-width: 100% for that it stays width original width and wont compell to occupy the entire width,
+ object-fit: cover for make the image fits to the given width and height, but object-fit: contain is ideal
+
+Q6:  either of any one would solve the problem
+.card {
+  flex: 1;
+  min-width: 0
+}
+
+.card {
+  width: calc((100% -20px) / 2)
+  min-width: 0
+}
+
+
+
