@@ -636,9 +636,6 @@ button:disabled {
 
 
 
-
-
-
 Q1: px, %, em, rem, vw and vh each have their certain pros and cons, first px is to standarised
  value for the element that wont change as its remains constant, % is for adapditive size as per
   the viewport or device that takes the width with what mentioned and available, em is relative 
