@@ -5,6 +5,42 @@ You should be able to explain and code:
 what are empty elements
 cell padding vs cell spacing
 image map
+package.json vs package.lock.json
+what is transpiler
+difference between default export and named export
+context api vs redux
+event loop latency
+
+
+
+let str = "my name is kesavan to pragalathan";
+str += " "
+
+let temp=""
+let longest = ""
+
+for(let i=0; i<str.length; i++){
+  if(str[i] == " "){
+    if(temp.length > longest.length){
+        longest = temp        
+      }
+      temp = ""
+  } else {
+    temp += str[i]
+  }  
+}
+
+console.log(longest)
+
+
+or
+
+const str = "my name is kesavan";
+const res = str.split(" ").reduce((acc, ele) => {
+  if(acc.length > ele.length) return acc;
+  return ele
+}, "")
+console.log(res)
 
  var, let, const
  Scope and hoisting
