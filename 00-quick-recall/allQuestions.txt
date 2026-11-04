@@ -1,0 +1,1047 @@
+Complete Full-Stack Interview Question Bank:
+
+
+1. HTML interview questions
+Priority: Core fundamentals, browser behavior, accessibility, and practical HTML.
+
+
+A. Theory and concepts
+
+
+1. What is HTML, and what role does it play in a web application?
+2. What is the difference between HTML, CSS, and JavaScript?
+3. What is semantic HTML? Why is it important?
+4. Explain the differences between div, section, article, aside, nav, and main.
+5. What is the difference between block-level and inline elements?
+6. What is the difference between id and class?
+7. What are HTML attributes? How are they different from DOM properties?
+8. What is the purpose of <!DOCTYPE html>?
+9. What are meta tags? Explain the viewport, description, and charset tags.
+10. What is the difference between async and defer in script loading?
+11. What happens when a browser loads an HTML document?
+12. What are the DOM and DOM tree?
+13. What is the difference between an HTML attribute and an ARIA attribute?
+14. How do label, name, id, required, and placeholder work in forms?
+15. What is the difference between GET and POST when submitting a form?
+16. What are HTML entities?
+17. What is the purpose of alt on images?
+18. What is the difference between localStorage, sessionStorage, and cookies?
+19. Why should external links using target="_blank" be handled carefully?
+20. What are HTML form validation attributes, and when would JavaScript validation still be necessary?
+B. Output and browser behavior
+21. What is the difference between a script with no loading attribute, async, and defer?
+22. If a label's for attribute doesn't match an input's id, what happens?
+23. What happens when an input has a name but no id when a form is submitted?
+24. Which form controls are submitted when they are disabled?
+25. What happens when a required input is empty and the form is submitted?
+26. What is the effect of omitting the alt attribute from an image?
+27. Why might a page appear incorrectly on a mobile device without a viewport meta tag?
+C. Practical exercises
+28. Create an accessible registration form with name, email, password, and required-field validation.
+29. Build a semantic product card containing an image, title, description, price, and link.
+30. Create a table with a caption, header cells, and appropriate accessibility semantics.
+31. Write a basic HTML document with correct metadata, headings, navigation, and a main content area.
+32. Create a search form that submits its query using a GET request.
+D. Scenario questions
+33. A screen reader cannot identify a form field's label. How would you debug it?
+34. A page has several h1 elements, nested divs, and no semantic landmarks. What would you improve?
+35. A page loads slowly because scripts block rendering. How would you investigate?
+36. How would you improve the accessibility of a modal or dropdown?
+
+2. CSS interview questions
+Priority: Layout, specificity, responsive design, and debugging.
+A. Fundamentals
+1. Explain the CSS box model.
+2. What is the difference between content-box and border-box?
+3. Explain the cascade, specificity, inheritance, and source order.
+4. How is CSS specificity calculated?
+5. What is the difference between inline, internal, and external CSS?
+6. Explain the differences between display: none, visibility: hidden, and opacity: 0.
+7. What is the difference between block, inline, and inline-block?
+8. Explain static, relative, absolute, fixed, and sticky positioning.
+9. What is a containing block?
+10. What is z-index, and why can a large value still fail to bring an element to the front?
+11. Explain Flexbox's main axis and cross axis.
+12. When would you choose CSS Grid over Flexbox?
+13. What are pseudo-classes and pseudo-elements?
+14. Explain descendant, child, adjacent-sibling, and general-sibling selectors.
+15. What are CSS custom properties?
+16. Compare px, %, em, rem, vw, and vh.
+17. What are media queries and mobile-first design?
+18. What is the difference between min-width, max-width, min-height, and max-height?
+19. Explain overflow: hidden, auto, scroll, and visible.
+20. What is margin collapsing?
+21. What are transform, transition, and animation?
+22. What is the difference between :focus, :focus-visible, and :focus-within?
+23. What is the difference between gap, margins, and padding?
+24. How do CSS inheritance and the inherit, initial, unset, and revert values work?
+B. Output and layout prediction
+25. Given a parent with width: 300px and padding: 20px, what is its total width under each box-sizing mode?
+26. What happens to a flex child with a long, unbreakable string?
+27. Why might width: 100% cause horizontal overflow?
+28. What determines which element appears on top when stacking contexts are involved?
+29. Why doesn't position: absolute position an element relative to the expected parent?
+30. What happens when a flex container has flex-wrap: wrap?
+31. How do flex-shrink, flex-grow, and flex-basis affect item sizing?
+32. What happens to an element's layout space when you set opacity: 0 versus display: none?
+33. Why might height: 100% fail to fill the expected height?
+34. What happens when two selectors have equal specificity but one appears later?
+C. Practical coding
+35. Build a responsive navigation bar using Flexbox.
+36. Create a two-column dashboard layout using Grid.
+37. Center a modal horizontally and vertically.
+38. Create a responsive card grid that adapts to different screen widths.
+39. Build a sticky header and explain its positioning requirements.
+40. Create a button with hover, focus, and disabled states.
+41. Implement a responsive sidebar that becomes a mobile navigation menu.
+42. Use CSS variables to implement a simple light/dark theme.
+D. Debugging scenarios
+43. A child overflows its flex parent despite width: 100%. How would you investigate?
+44. A dropdown is hidden behind another component despite having z-index: 9999. Why?
+45. A Grid layout works on desktop but overflows on mobile. What would you inspect?
+46. A sticky header isn't sticking. What common CSS conditions could cause this?
+47. A layout shifts when content loads. How could you reduce the shift?
+48. How would you diagnose a CSS rule that appears to be ignored?
+
+3. JavaScript interview questions
+Priority: Highest. Include conceptual understanding, output prediction, and coding.
+A. Core language concepts
+1. Explain var, let, and const.
+2. What are global, function, and block scope?
+3. What is hoisting?
+4. What is the temporal dead zone?
+5. What is lexical scope?
+6. Explain closures with a practical example.
+7. What is the difference between function declarations, function expressions, and arrow functions?
+8. How does this behave in regular functions versus arrow functions?
+9. Explain implicit and explicit type coercion.
+10. What is the difference between == and ===?
+11. Compare null, undefined, and NaN.
+12. What are truthy and falsy values?
+13. What is the difference between primitive and reference types?
+14. Explain shallow copy versus deep copy.
+15. What is destructuring?
+16. Explain spread and rest syntax.
+17. What is optional chaining? What does nullish coalescing do?
+18. What is short-circuit evaluation?
+19. Explain first-class functions and higher-order functions.
+20. What is a pure function?
+21. What are side effects?
+22. What is recursion, and when is it useful?
+23. What is the difference between call, apply, and bind?
+24. Explain prototypes and prototypal inheritance.
+25. What are classes in JavaScript, and how do they relate to prototypes?
+26. What is the difference between an iterable and an iterator?
+27. What are Map, Set, WeakMap, and WeakSet?
+28. What are ES modules? Explain named versus default exports.
+29. What is immutability, and why does it matter in React?
+30. What are optional parameters and default parameters? How do they differ from passing undefined?
+B. Arrays and objects
+31. Explain map, filter, and reduce.
+32. Compare find, findIndex, some, and every.
+33. What is the difference between slice and splice?
+34. What is the difference between forEach and map?
+35. How does sort() behave by default? How would you sort numbers correctly?
+36. How can you remove duplicate values from an array?
+37. How do you group an array of objects by a property?
+38. How would you flatten a nested array?
+39. How would you find the most frequent element in an array?
+40. What is the difference between Object.keys, Object.values, and Object.entries?
+41. How do you safely copy an object containing nested data?
+42. Why can mutating an object unexpectedly affect another variable?
+43. How would you merge two objects while preserving immutability?
+44. How would you convert an array of objects into a lookup object keyed by ID?
+C. Asynchronous JavaScript
+45. Explain synchronous versus asynchronous execution.
+46. What is the JavaScript event loop?
+47. Explain the call stack, task queue, and microtask queue.
+48. Compare callbacks, Promises, and async/await.
+49. What are the states of a Promise?
+50. Explain Promise.all, Promise.allSettled, Promise.race, and Promise.any.
+51. What happens when one Promise rejects inside Promise.all?
+52. How do you handle errors in an async function?
+53. What is the difference between sequential and parallel API requests?
+54. What is callback hell, and how can you avoid it?
+55. What is fetch, and why should you check response.ok?
+56. How would you cancel an HTTP request using AbortController?
+57. What is a race condition in asynchronous code?
+58. How would you implement retry logic with a maximum number of attempts?
+59. Why doesn't Array.prototype.forEach() wait for an async callback?
+60. What happens when an async function returns a regular value?
+D. Output-based questions
+Predict the exact output and explain why.
+console.log(a);
+var a = 10;
+
+
+console.log(a);
+let a = 10;
+
+
+console.log(typeof null);
+console.log(typeof NaN);
+
+
+console.log([] == false);
+console.log([] === false);
+
+
+console.log(1 + "2" + 3);
+console.log(1 + 2 + "3");
+
+
+let a = { count: 1 };
+let b = a;
+b.count = 5;
+console.log(a.count);
+
+
+const arr = [1, 2, 3];
+console.log(arr.map(x => x * 2));
+console.log(arr.filter(x => x > 1));
+
+
+console.log("start");
+
+setTimeout(() => console.log("timeout"), 0);
+Promise.resolve().then(() => console.log("promise"));
+
+console.log("end");
+
+
+for (var i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), 0);
+}
+
+
+for (let i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), 0);
+}
+
+
+const user = { name: "Sam" };
+const copy = { ...user };
+copy.name = "Alex";
+console.log(user.name);
+
+
+console.log([10, 2, 30].sort());
+console.log([10, 2, 30].sort((a, b) => a - b));
+
+
+async function test() {
+  return 10;
+}
+console.log(test());
+
+
+console.log("5" - 2);
+console.log("5" + 2);
+console.log(true + 1);
+
+
+const user = { profile: { city: "Chennai" } };
+const copy = { ...user };
+copy.profile.city = "Delhi";
+console.log(user.profile.city);
+
+
+console.log(Boolean("false"));
+console.log(Boolean(""));
+console.log(Boolean([]));
+
+
+E. Coding exercises
+77. Reverse a string without using the built-in reverse() method.
+78. Check whether a string is a palindrome.
+79. Count the frequency of each character in a string.
+80. Find the second-largest distinct number in an array.
+81. Remove duplicates from an array without using Set.
+82. Flatten a nested array using recursion.
+83. Implement a recursive factorial function.
+84. Write a function that checks whether two strings are anagrams.
+85. Group objects by a specified property.
+86. Implement a custom map() function.
+87. Implement a custom filter() function.
+88. Implement a simplified reduce() function.
+89. Implement debounce().
+90. Implement throttle().
+91. Implement a function that performs a deep clone for supported plain objects and arrays.
+92. Implement a function that compares two objects for structural equality.
+93. Implement a once() utility that allows a function to execute only once.
+94. Implement a memoization utility.
+95. Implement a function that retries a failed async operation up to a specified number of times.
+96. Implement a function that runs async tasks sequentially.
+97. Implement a function that limits the number of concurrently executing async tasks.
+98. Write a polyfill for bind() or explain how you would implement one.
+99. Write a function to chunk an array into groups of a specified size.
+100. Implement a function that finds the intersection of two arrays.
+F. Debugging and real-world scenarios
+101. A click handler runs twice unexpectedly. What would you investigate?
+102. A closure retains stale state in a timer. How would you debug it?
+103. A Promise rejection isn't being caught. What might be wrong?
+104. An API response arrives after the user has navigated away. How would you handle it?
+105. A search API fires on every keystroke. How would you optimize it?
+106. An object comparison using === returns false even though the objects contain the same properties. Why?
+107. A function changes the original array unexpectedly. How would you fix it?
+108. How would you handle errors when several parallel requests are partly successful?
+109. A Node.js process is blocked by expensive synchronous work. What would you do?
+110. How would you explain a JavaScript bug to an interviewer using a minimal reproducible example?
+
+4. React interview questions
+A. Fundamentals and rendering
+1. What is React, and what problems does it solve?
+2. What is the difference between a component, an element, and a DOM node?
+3. What are functional components?
+4. What is JSX, and how is it transformed?
+5. What is the difference between props and state?
+6. Why should React state be treated as immutable?
+7. What causes a React component to re-render?
+8. What is reconciliation?
+9. Why are keys important when rendering lists?
+10. Why should array indexes generally be avoided as keys for changing lists?
+11. What is conditional rendering?
+12. What is lifting state up?
+13. What is prop drilling?
+14. What is the difference between controlled and uncontrolled components?
+15. Why can directly modifying a state variable fail to update the UI?
+16. How does React batch state updates?
+17. Why can state updates based on previous state require functional updates?
+18. What is the difference between mounting, updating, and unmounting?
+19. What is the purpose of React Fragments?
+20. What is the difference between composition and inheritance in React?
+B. Hooks
+21. Explain useState and its common use cases.
+22. Explain useEffect and its dependency array.
+23. What happens if you omit the dependency array from useEffect?
+24. What happens if you use an empty dependency array?
+25. What is an effect cleanup function?
+26. How can incorrect effect dependencies cause stale closures?
+27. What are the Rules of Hooks?
+28. Explain useRef and how it differs from state.
+29. Compare useMemo and useCallback.
+30. When can useMemo make performance worse rather than better?
+31. What is a custom hook? When should you create one?
+32. Why might an effect run an extra time in development under Strict Mode?
+33. How do you avoid infinite loops caused by effects?
+34. When should you avoid using useEffect?
+35. What is useReducer, and when is it preferable to useState?
+36. What is useContext, and what performance considerations apply to it?
+37. What problem does useTransition address?
+38. What is useId, and why shouldn't it be used to generate list keys?
+C. State management and performance
+39. When would you use Context API versus Redux or Zustand?
+40. What is the difference between local state and global state?
+41. What is derived state, and why should redundant state often be avoided?
+42. What is React.memo?
+43. Why doesn't wrapping every component in React.memo necessarily improve performance?
+44. How do unstable object and function references affect memoization?
+45. How would you diagnose unnecessary re-renders?
+46. What is code splitting?
+47. What is lazy loading with React.lazy and Suspense?
+48. How would you optimize a large list?
+49. What is virtualization?
+50. How does React's rendering behavior differ from directly manipulating the DOM?
+D. API integration and practical coding
+51. Build a component that fetches users from an API and displays loading, success, empty, and error states.
+52. Create a controlled form with validation and a submit handler.
+53. Implement search with debouncing.
+54. Implement pagination for a list of products.
+55. Create a reusable custom hook for fetching data.
+56. Build a reusable modal with proper open/close behavior.
+57. Create a component that adds, edits, and deletes tasks.
+58. Implement a protected route based on authentication state.
+59. Create a theme toggle using Context API.
+60. Implement optimistic UI updates and explain how to recover if the server rejects the update.
+E. React output and debugging
+61. What happens when a component's state is updated to the same primitive value?
+62. Why might this state update fail to render the expected result?
+const [user, setUser] = useState({ name: "Sam" });
+
+user.name = "Alex";
+setUser(user);
+
+
+63. What is wrong with this effect?
+useEffect(() => {
+  setCount(count + 1);
+}, [count]);
+
+
+64. Why can an event handler log the previous state immediately after calling a state setter?
+65. What happens if you define a component inside another component's render function?
+66. Why can changing a list's index keys produce incorrect input values?
+67. Find the issue in this effect:
+useEffect(() => {
+  fetch(`/api/users/${userId}`)
+    .then(res => res.json())
+    .then(setUser);
+}, []);
+
+
+68. Why might a React.memo component still re-render when its parent renders?
+69. How can an effect cause duplicate API calls during development?
+70. A component displays old search results after a newer request finishes. How would you fix it?
+F. Real-world scenarios
+71. How would you organize a medium-sized React application?
+72. Where should API calls and business logic live?
+73. How would you handle authentication across routes?
+74. How would you share state between unrelated components?
+75. How would you design reusable form components?
+76. How would you handle a failed API request and let the user retry?
+77. How would you investigate a slow React page?
+78. What is the difference between client-side routing and full-page navigation?
+79. How would you prevent unnecessary network requests when a user changes filters quickly?
+80. How would you explain React's main trade-offs to an interviewer?
+
+5. TypeScript interview questions
+A. Types and fundamentals
+1. What is TypeScript, and how does it differ from JavaScript?
+2. What is static type checking?
+3. What is type inference?
+4. What is the difference between any, unknown, and never?
+5. What is the difference between type and interface?
+6. What is a union type?
+7. What is an intersection type?
+8. What are literal types?
+9. How do optional properties and optional parameters work?
+10. How do you type an array of objects?
+11. What is a tuple?
+12. What are enums, and when might literal unions be preferable?
+13. What is type narrowing?
+14. What are type guards?
+15. What is a discriminated union?
+16. What is the difference between null and undefined in TypeScript?
+17. What are type assertions, and why aren't they runtime validation?
+18. What is structural typing?
+19. What are generics?
+20. What are generic constraints?
+21. Explain keyof and typeof.
+22. What are indexed access types?
+23. Explain Partial, Required, Pick, Omit, Record, and Readonly.
+24. What are utility types, and why are they useful?
+25. What are declaration files and DefinitelyTyped?
+B. Configuration and practical typing
+26. What does strict enable in tsconfig.json?
+27. What do strictNullChecks and noImplicitAny do?
+28. What is the purpose of target, module, and moduleResolution?
+29. How do you type a function's parameters and return value?
+30. How would you type an API response containing a user and an array of tasks?
+31. How would you type a function that returns Promise<User>?
+32. How would you type React props?
+33. How would you type useState for a value that can initially be null?
+34. How do you type a form event and an input change event?
+35. How would you type a reusable generic table component?
+36. How would you model task status using a discriminated union?
+37. How can you avoid using any when handling external API data?
+38. How do you safely narrow an unknown error inside a catch block?
+39. How do you type a function that accepts only "low", "medium", or "high"?
+40. What is the difference between compile-time types and runtime validation?
+C. Output and debugging
+41. Why does this fail?
+let value: string = "hello";
+value = 123;
+
+
+42. Why is unknown safer than any?
+43. Why can this assertion be unsafe?
+const user = JSON.parse(data) as User;
+
+
+44. What is the problem with this function?
+function getName(user: User) {
+  return user.name;
+}
+
+
+Assume User is not defined and strict type checking is enabled.
+45. Why might a generic function infer a broader type than expected?
+46. What happens when you access a property that doesn't exist on a union type?
+47. How can strictNullChecks prevent runtime errors?
+48. Why can an interface with the same name be extended through declaration merging?
+49. What is wrong with using Object or {} as a general-purpose type?
+50. Why can't TypeScript guarantee that a network response matches an interface?
+D. Coding and scenarios
+51. Define a Task type with ID, title, status, and optional due date.
+52. Create a generic function that returns the first element of an array.
+53. Write a type guard that distinguishes a successful API response from an error response.
+54. Use Pick and Omit to create a public user type without sensitive fields.
+55. Type a React component that receives tasks and an onDelete callback.
+56. Model API loading, success, and error states using a discriminated union.
+57. Create a typed function that updates one field of a task.
+58. Explain how you would introduce TypeScript gradually into an existing JavaScript project.
+
+6. Node.js interview questions
+A. Fundamentals
+1. What is Node.js, and how does it differ from a browser JavaScript runtime?
+2. Is Node.js single-threaded?
+3. Explain the event loop in Node.js.
+4. What is the difference between blocking and non-blocking I/O?
+5. What is the difference between synchronous and asynchronous filesystem operations?
+6. What are the call stack, microtasks, and event-loop phases?
+7. What is the difference between CommonJS and ES modules?
+8. Explain require, import, module.exports, and export.
+9. What are npm, package.json, and package-lock.json?
+10. What is the difference between dependencies and dev dependencies?
+11. What are environment variables, and how do you load them?
+12. What are streams in Node.js?
+13. What is a Buffer?
+14. What is the difference between setTimeout, setImmediate, and process.nextTick?
+15. What are worker threads, and when would you use them?
+16. What is the difference between CPU-bound and I/O-bound work?
+17. How does Node.js handle concurrent requests?
+18. What are unhandled Promise rejections?
+19. What is graceful shutdown?
+20. What causes memory leaks in Node.js applications?
+B. Output and practical coding
+21. Predict the output of code mixing synchronous logs, resolved Promises, process.nextTick, and timers.
+22. Write an async function that reads a file and handles errors.
+23. Create a simple HTTP server using Node.js.
+24. Implement a function that processes a stream without loading an entire file into memory.
+25. Explain how you would handle uncaught errors and safely terminate a process.
+26. Diagnose a server that becomes unresponsive when processing large datasets.
+27. Explain how you would configure development and production environment variables.
+28. How would you investigate a process whose memory usage continuously increases?
+
+7. Express.js and REST API interview questions
+A. Express fundamentals
+1. What is Express.js?
+2. What is middleware?
+3. Explain the request-response lifecycle.
+4. What is the difference between application-level, router-level, and error-handling middleware?
+5. What do req.params, req.query, and req.body contain?
+6. What is the difference between app.use() and app.get()?
+7. What is the purpose of express.Router()?
+8. Why does middleware order matter?
+9. How does next() work?
+10. What is the difference between synchronous and asynchronous errors in Express?
+11. How does Express 5 handle rejected Promises in route handlers?
+12. How would you structure routes, controllers, services, and models?
+13. What is REST?
+14. Compare GET, POST, PUT, PATCH, and DELETE.
+15. What is idempotency?
+16. Explain common HTTP status codes.
+17. What are pagination, filtering, sorting, and searching in API design?
+18. What is CORS?
+19. How do you validate request bodies?
+20. How do you centralize API error responses?
+B. Authentication and security
+21. Explain authentication versus authorization.
+22. How does JWT authentication work?
+23. What are access tokens and refresh tokens?
+24. Where should tokens be stored in a browser, and what are the trade-offs?
+25. How do password hashing and salting work?
+26. Why should passwords never be stored in plaintext?
+27. What is the difference between hashing and encryption?
+28. What are XSS, CSRF, SQL injection, and NoSQL injection?
+29. How do parameterized queries help prevent SQL injection?
+30. What are rate limiting and brute-force protection?
+31. How would you protect admin-only routes?
+32. How should secrets and API keys be managed?
+33. What security risks arise from trusting request-body fields such as role or userId?
+34. How would you validate and sanitize uploaded files?
+35. What information should an API return when an internal error occurs?
+C. Practical and debugging
+36. Build an Express endpoint that validates input and creates a resource.
+37. Write centralized error-handling middleware.
+38. Implement authentication middleware that verifies a JWT.
+39. Implement authorization so users can only modify their own tasks.
+40. Debug a route that never sends a response.
+41. Diagnose why an Express route returns 404 even though the handler exists.
+42. An endpoint works in Postman but fails from the browser. What would you check?
+43. How would you prevent duplicate payment or order creation requests?
+44. How would you design an endpoint that supports filtering and pagination?
+45. How would you handle a database failure in the middle of a request?
+
+8. MongoDB and Mongoose interview questions
+A. Database fundamentals
+1. What is MongoDB, and how does it differ from a relational database?
+2. Explain databases, collections, and documents.
+3. What is BSON?
+4. What is the purpose of _id and ObjectId?
+5. What is the difference between embedding and referencing documents?
+6. When would you choose embedding over referencing?
+7. What are MongoDB schema validation and Mongoose schema validation?
+8. What is the difference between a MongoDB collection and a Mongoose model?
+9. What are Mongoose middleware hooks?
+10. What is the difference between save() and findOneAndUpdate()?
+B. Queries and aggregation
+11. Compare find(), findOne(), and findById().
+12. What is the difference between $set, $push, $addToSet, $pull, and $inc?
+13. How do you query nested objects and arrays?
+14. What is the aggregation pipeline?
+15. Explain $match, $group, $project, $sort, $unwind, and $lookup.
+16. How does populate() work?
+17. What is the difference between populate() and $lookup?
+18. What does Mongoose's lean() do?
+19. How would you calculate total sales grouped by product category?
+20. How would you implement pagination, filtering, and sorting?
+C. Indexes and performance
+21. What is a database index?
+22. How do indexes improve reads, and what are their costs?
+23. What is a compound index?
+24. What is a unique index?
+25. How can you investigate a slow MongoDB query?
+26. What is the difference between offset-based and cursor-based pagination?
+27. How do you prevent duplicate records?
+28. What are MongoDB transactions, and when are they useful?
+29. What is optimistic concurrency?
+30. How would you optimize a collection containing millions of documents?
+D. Output, debugging, and scenarios
+31. Why might a Mongoose query return a document with fields you didn't expect?
+32. Why might updating a nested object replace more data than intended?
+33. Why can populate() return null?
+34. A query becomes slow after the collection grows. How would you investigate it?
+35. Two users attempt to purchase the last item in stock. How would you prevent overselling?
+36. A user should only access their own records. Where would you enforce this?
+37. How would you design the data model for an e-commerce order and its line items?
+38. How would you migrate an existing collection when a schema changes?
+39. How would you decide between one large document and several referenced documents?
+40. How would you store and query vector embeddings for a RAG application using a supported vector-search database?
+
+9. PostgreSQL and SQL interview questions
+A. SQL fundamentals
+1. What are databases, tables, rows, and columns?
+2. What is a primary key?
+3. What is a foreign key?
+4. Compare primary keys, unique constraints, and not-null constraints.
+5. What is a composite primary key?
+6. What is a check constraint?
+7. What is a default value?
+8. What is referential integrity?
+9. What is normalization? Explain 1NF, 2NF, and 3NF.
+10. When might denormalization be useful?
+11. Compare DELETE, TRUNCATE, and DROP.
+12. Compare WHERE and HAVING.
+13. What is the difference between NULL, an empty string, and zero?
+14. Why does column = NULL not work as expected?
+15. Explain COALESCE, NULLIF, and CASE.
+16. What are aliases and table-qualified column names?
+17. What is the difference between COUNT(*) and COUNT(column)?
+18. What is the difference between UNION and UNION ALL?
+19. What are aggregate functions?
+20. What are identity columns and UUIDs? When might each be appropriate?
+B. Joins and advanced queries
+21. Explain INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL OUTER JOIN.
+22. What is a cross join?
+23. What is a self join?
+24. What is a subquery?
+25. What is a correlated subquery?
+26. What is a common table expression (CTE)?
+27. What are window functions?
+28. Explain ROW_NUMBER, RANK, and DENSE_RANK.
+29. How does PARTITION BY differ from GROUP BY?
+30. What is the difference between EXISTS and IN?
+31. How do you find duplicate records?
+32. How do you find records that have no matching row in another table?
+33. How do you get the latest record for each user?
+34. How would you find the second-highest salary?
+35. How would you calculate a running total?
+C. Practical SQL exercises
+Assume these tables:
+users (
+  id,
+  name,
+  email,
+  created_at
+)
+
+tasks (
+  id,
+  user_id,
+  title,
+  status,
+  created_at
+)
+
+orders (
+  id,
+  user_id,
+  total_amount,
+  status,
+  created_at
+)
+
+
+36. Retrieve all users ordered by creation date, newest first.
+37. Find all tasks belonging to a particular user.
+38. Retrieve each user and their tasks using a join.
+39. Find users who have no tasks.
+40. Count tasks per user, including users with zero tasks.
+41. Find users who have more than five tasks.
+42. Find the number of tasks grouped by status.
+43. Find the latest task for every user.
+44. Find the second-highest distinct order amount.
+45. Calculate each user's total completed-order value.
+46. Retrieve the top three users by total spending.
+47. Find duplicate email addresses.
+48. Update a task's status safely.
+49. Delete tasks older than a specified date, explaining the safety checks you'd use.
+50. Implement pagination with LIMIT and OFFSET.
+51. Find users created within a date range.
+52. Find orders whose amount is above the overall average.
+53. Use a CTE to calculate user spending and filter the highest spenders.
+54. Use a window function to rank orders per user.
+55. Find users who have completed at least one order but no cancelled orders.
+D. Indexes, transactions, and PostgreSQL internals
+56. What is an index, and how does it affect read and write performance?
+57. What is a composite index, and why does column order matter?
+58. What is a unique index?
+59. How do you inspect query performance with EXPLAIN and EXPLAIN ANALYZE?
+60. What is a transaction?
+61. Explain ACID properties.
+62. What are transaction isolation levels?
+63. What are dirty reads, non-repeatable reads, and phantom reads?
+64. What is a deadlock, and how can it be reduced?
+65. What is the difference between optimistic and pessimistic locking?
+66. What is ON DELETE CASCADE?
+67. Compare CASCADE, RESTRICT, and SET NULL for foreign keys.
+68. What are JSON and JSONB in PostgreSQL?
+69. When would you use a relational column versus JSONB?
+70. What is connection pooling, and why is it important in a Node.js API?
+E. Real-world database scenarios
+71. Two requests try to decrement the same stock quantity. How would you avoid overselling?
+72. An API inserts an order but fails before recording its line items. How would you maintain consistency?
+73. A query works with 100 records but is slow with one million. How would you investigate?
+74. How would you model users and tasks with a one-to-many relationship?
+75. How would you safely change a column type in a production database?
+76. How would you handle a transaction failure?
+77. Why can adding an index sometimes make a system slower?
+78. How would you choose between offset and cursor pagination?
+79. How would you store a flexible set of metadata in PostgreSQL?
+80. How would you investigate a database connection pool that is exhausted?
+
+10. Prisma ORM interview questions
+A. Fundamentals and schema
+1. What is Prisma, and why use an ORM?
+2. How does Prisma differ from writing raw SQL using a PostgreSQL driver?
+3. What are Prisma Schema, Prisma Client, and Prisma Migrate?
+4. What is a Prisma model?
+5. How do Prisma scalar fields map to database columns?
+6. How do you define one-to-one, one-to-many, and many-to-many relationships?
+7. What is the difference between a relation field and a scalar foreign-key field?
+8. How do @id, @unique, @default, @relation, and @@index work?
+9. What is the purpose of @map and @@map?
+10. How do you represent optional fields and nullable relations?
+11. What is referential integrity?
+12. What are referential actions such as Cascade, Restrict, and SetNull?
+13. What does prisma generate do?
+14. What is the difference between prisma migrate dev and prisma migrate deploy?
+15. Why should migration history be committed to version control?
+B. Prisma Client and queries
+16. How do findUnique, findFirst, and findMany differ?
+17. How do create, update, upsert, and delete work?
+18. What is the difference between select and include?
+19. How do you filter nested relations?
+20. How do you sort and paginate records?
+21. How would you create a user and multiple tasks in one operation?
+22. How would you update a nested relation?
+23. What is the difference between nested writes and interactive transactions?
+24. How do you perform aggregation and grouping with Prisma?
+25. When might you use raw SQL instead of Prisma Client?
+26. How do you prevent exposing sensitive fields in API responses?
+27. How does Prisma work with TypeScript?
+28. How do you handle unique-constraint violations?
+29. What happens when Prisma Client is not regenerated after a schema change?
+30. How would you manage Prisma Client connections in a Node.js server?
+C. Transactions and debugging
+31. What is the difference between $transaction array operations and interactive transactions?
+32. When should multiple database operations run in one transaction?
+33. How do you handle transaction failures?
+34. How do Prisma transactions interact with database isolation levels?
+35. What causes an N+1 query problem?
+36. How would you diagnose a slow Prisma query?
+37. How do you add indexes through Prisma schema changes?
+38. How would you handle a migration conflict?
+39. Why might a field exist in your Prisma schema but not in the deployed database?
+40. How would you safely apply migrations in production?
+D. Practical coding exercises
+41. Define Prisma models for User and Task with a one-to-many relationship.
+42. Write a query to find all tasks belonging to a particular user.
+43. Retrieve users with their task counts.
+44. Find users who have at least one completed task.
+45. Create an order and its items in a nested write.
+46. Implement pagination and sorting with Prisma Client.
+47. Update a task only if it belongs to the authenticated user.
+48. Write a transaction that creates an order and reduces inventory.
+49. Handle a Prisma unique-constraint error in Express.
+50. Explain how you would migrate a plain PostgreSQL CRUD application to Prisma.
+
+11. Web fundamentals, HTTP, and browser APIs
+1. Explain the request-response lifecycle from browser to backend.
+2. What is DNS?
+3. What happens when you enter a URL in the browser?
+4. Explain HTTP versus HTTPS.
+5. What is TLS?
+6. Compare cookies, localStorage, and sessionStorage.
+7. What is the difference between client-side and server-side validation?
+8. Explain CORS and preflight requests.
+9. What is the same-origin policy?
+10. What are HTTP headers?
+11. Explain status codes 200, 201, 204, 301, 302, 400, 401, 403, 404, 409, 422, 429, and 500.
+12. What is caching, and what are Cache-Control and ETag?
+13. What is the difference between cookies with HttpOnly, Secure, and SameSite attributes?
+14. What is the difference between authentication and authorization?
+15. What is the difference between WebSockets, HTTP polling, and Server-Sent Events?
+16. What are accessibility and responsive-design considerations for web applications?
+17. What are XSS and CSRF?
+18. What is content security policy?
+19. How would you debug a request that fails in the browser but works in Postman?
+20. What happens if the client disconnects while the server is processing a request?
+
+12. AI, LLMs, embeddings, RAG, and vector search
+Priority: Important differentiator for your AskMyDoc project and future AI engineering direction.
+A. LLM fundamentals
+1. What is a large language model (LLM)?
+2. How does an LLM generate a response at a high level?
+3. What are tokens, and why do token counts matter?
+4. What is a context window?
+5. What is temperature, and how does it affect output?
+6. What is the difference between a system prompt and a user prompt?
+7. What is prompt engineering?
+8. What are hallucinations in LLMs?
+9. What is the difference between an LLM API and hosting a model yourself?
+10. What is the difference between inference and training?
+11. What is fine-tuning?
+12. What is the difference between RAG and fine-tuning?
+13. What are multimodal models?
+14. What is structured output, and why is it useful?
+15. What causes an LLM API request to fail, and how would you handle the failure?
+B. Embeddings and vector search
+16. What are embeddings?
+17. How does text get converted into an embedding vector?
+18. What does semantic similarity mean?
+19. What is a vector database?
+20. How is vector search different from keyword search?
+21. What is cosine similarity?
+22. What are dot product and Euclidean distance?
+23. What is the relationship between embedding dimensions and an embedding model?
+24. Why must query and document embeddings be compatible?
+25. What is approximate nearest-neighbor search?
+26. What is metadata filtering in vector search?
+27. How can you combine keyword search and vector search?
+28. What is a similarity threshold?
+29. Why might a vector search return irrelevant results?
+30. How would you evaluate retrieval quality?
+C. RAG architecture
+31. What is Retrieval-Augmented Generation?
+32. Why use RAG instead of sending an entire document to an LLM?
+33. Explain the RAG ingestion pipeline.
+34. Explain the RAG query pipeline.
+35. What is document chunking?
+36. How do chunk size and overlap affect retrieval quality?
+37. What are the trade-offs between fixed-size and semantic chunking?
+38. Why do we generate embeddings for document chunks?
+39. How is the user's question processed during retrieval?
+40. What happens after the relevant chunks are retrieved?
+41. How do you include retrieved context in an LLM prompt?
+42. How can you encourage answers to remain grounded in retrieved documents?
+43. What is top-k retrieval?
+44. What are reranking and hybrid retrieval?
+45. What is retrieval-augmented generation's main limitation?
+46. How do you handle questions whose answers aren't in the documents?
+47. How would you evaluate a RAG application?
+48. What is the difference between retrieval quality and answer quality?
+49. How would you handle large PDFs and document-processing failures?
+50. What are the risks of malicious instructions embedded inside retrieved documents?
+D. Output prediction and implementation exercises
+51. If a chunking strategy produces 1,000 overlapping chunks, what are the possible storage, latency, and retrieval trade-offs?
+52. If the query embedding has a different dimension from stored vectors, what can happen?
+53. Why might a query retrieve a chunk with high semantic similarity that doesn't answer the question?
+54. Given five retrieved chunks, how would you decide which to include in the LLM context?
+55. Design a data structure for storing chunk text, document ID, page number, embedding, and metadata.
+56. Write pseudocode for ingesting a PDF into a RAG system.
+57. Write pseudocode for retrieving context and generating an answer.
+58. How would you add citations or page references to generated answers?
+59. How would you avoid returning documents belonging to another user?
+60. How would you handle document updates and delete obsolete embeddings?
+E. Gemini API and production scenarios
+61. How do you call an LLM API securely from a Node.js backend?
+62. Why should an API key not be exposed in frontend code?
+63. How would you handle rate limits, timeouts, and transient API failures?
+64. How would you reduce token consumption?
+65. How would you monitor latency and cost per question?
+66. How would you protect a RAG system against prompt injection?
+67. How would you prevent one user from retrieving another user's documents?
+68. How would you improve RAG answers when the retrieved context is correct but the answer is wrong?
+69. How would you handle an uploaded PDF containing scanned images rather than selectable text?
+70. When would you choose a conventional database query instead of an LLM?
+F. Your AskMyDoc project discussion
+71. Explain AskMyDoc's architecture from PDF upload to final answer.
+72. Why did you choose RAG instead of sending the whole document to Gemini?
+73. What role do embeddings play in your implementation?
+74. How does your application retrieve relevant chunks?
+75. What happens if the user asks something unrelated to the uploaded document?
+76. What are the main limitations of your current retrieval approach?
+77. How do you protect API keys and uploaded documents?
+78. How would you measure retrieval quality and answer accuracy?
+79. How would you reduce response time and API costs?
+80. If you had another week to improve AskMyDoc, what would you change first, and why?
+
+13. Git, GitHub, and development workflow
+1. What is Git, and how is it different from GitHub?
+2. Explain git init, git clone, git add, git commit, and git push.
+3. What is the difference between git pull and git fetch?
+4. What is a branch?
+5. How do you resolve a merge conflict?
+6. What is the difference between merge and rebase?
+7. What is a pull request?
+8. How do .gitignore files work?
+9. How do you remove a secret accidentally committed to a repository?
+10. What is the difference between git revert and git reset?
+11. How do you recover a commit using git reflog?
+12. How would you work with feature branches?
+13. Why should you avoid committing node_modules and environment files?
+14. What is semantic versioning?
+15. How would you deploy a React frontend and Node.js backend?
+16. How would you diagnose a build that works locally but fails in deployment?
+17. How would you organize environment variables across development and production?
+18. How would you roll back a faulty deployment?
+
+14. Testing and debugging
+A. Testing fundamentals
+1. What is the difference between unit, integration, and end-to-end testing?
+2. What is the testing pyramid?
+3. What is a test case?
+4. What is the difference between a mock, stub, and spy?
+5. What should you test in a React component?
+6. What is the purpose of React Testing Library?
+7. What should you test in an Express API?
+8. How do you test error-handling paths?
+9. How would you test an authenticated endpoint?
+10. What is test coverage, and why doesn't high coverage guarantee good tests?
+B. Practical scenarios
+11. How would you test a form with required fields and validation?
+12. How would you test a component that fetches data asynchronously?
+13. How would you mock an API request?
+14. How would you test a database operation without affecting production data?
+15. How would you test JWT authentication and authorization?
+16. How would you investigate a test that passes locally but fails in CI?
+17. How would you debug a production-only error?
+18. What information would you include in a useful bug report?
+19. How would you reproduce an intermittent race condition?
+20. How would you prevent a regression after fixing a bug?
+
+15. Application architecture and system design for junior developers
+1. How would you design a task-management application using MERN?
+2. How would you separate routes, controllers, services, and data access?
+3. How would you design user and task relationships?
+4. How would you implement authentication and authorization?
+5. How would you handle pagination for a large dataset?
+6. How would you prevent duplicate submissions?
+7. How would you handle concurrent updates?
+8. How would you design consistent API error responses?
+9. How would you handle image uploads using cloud storage?
+10. How would you implement search, sorting, and filtering?
+11. How would you design an e-commerce checkout flow?
+12. How would you handle payment failures?
+13. How would you secure an API against abuse?
+14. How would you improve a slow endpoint?
+15. How would you cache frequently requested data?
+16. How would you design logging and monitoring?
+17. What happens when your database is temporarily unavailable?
+18. How would you scale a Node.js application at a high level?
+19. How would you choose MongoDB versus PostgreSQL for a new feature?
+20. When would you choose a traditional backend endpoint versus a Next.js Route Handler?
+
+16. Project-based interview questions
+Prepare these separately because interviewers often use your projects to move from basic questions into deeper technical discussions.
+A. Trendz — E-commerce
+1. Explain the architecture of your e-commerce application.
+2. How does authentication work?
+3. How do you distinguish admin and regular-user permissions?
+4. How did you implement product management?
+5. How did you handle image uploads and Cloudinary?
+6. How does the Stripe payment flow work?
+7. How do you handle payment success, failure, and verification?
+8. How do you validate order data?
+9. How do you prevent unauthorized product modifications?
+10. What would you change to improve reliability and security?
+B. Money Metrics — Finance tracking
+11. Explain the income and expense data model.
+12. How do you validate transactions?
+13. How do you filter transactions by type and category?
+14. How would you calculate monthly income, expenses, and balance?
+15. How would you handle invalid amounts or missing categories?
+16. How would you protect user-specific financial data?
+17. How would you optimize transaction history queries?
+18. How would you add pagination and date-range filtering?
+19. How would you test calculations and edge cases?
+20. What would you improve in the application?
+C. AskMyDoc — RAG application
+21. Explain the complete document-question-answering flow.
+22. How do embeddings and vector search work in your application?
+23. How do you handle irrelevant or missing context?
+24. How does Gemini fit into the pipeline?
+25. What are the security risks of processing uploaded documents?
+26. How would you improve retrieval relevance?
+27. How would you reduce latency and token usage?
+28. How would you evaluate answer correctness?
+29. What happens when the LLM API is unavailable?
+30. What are the next improvements you would make?
+D. General project questions
+31. What was the most challenging bug you fixed?
+32. What technical decision are you most confident about?
+33. What would you redesign if you started again?
+34. How did you structure your backend?
+35. How did you handle validation and error responses?
+36. How did you debug deployment issues?
+37. How did you protect credentials?
+38. What compromises did you make due to time or resource constraints?
+39. How would you explain the value of each project to a nontechnical interviewer?
+40. Which project best demonstrates your current skills, and why?
+
+17. Behavioral and HR interview questions
+Prepare concise, truthful answers. Aim for 30–90 seconds for most responses.
+1. Tell me about yourself.
+2. Walk me through your transition into software development.
+3. Why are you applying for MERN Stack Developer roles?
+4. Why should we hire you?
+5. What are your strongest technical skills?
+6. What are you currently improving?
+7. Explain a technical challenge you overcame.
+8. Tell me about a mistake you made and what you learned.
+9. How do you approach debugging a problem you don't understand?
+10. How do you learn a new framework or technology?
+11. How do you manage competing deadlines?
+12. What do you do when you disagree with a teammate's technical decision?
+13. How do you respond to code review feedback?
+14. How do you explain technical issues to nontechnical people?
+15. Why are you looking for this role?
+16. What are your career goals over the next two to three years?
+17. How would you respond if asked to use a technology you haven't worked with?
+18. How do you keep your technical skills current?
+19. Describe a project where you had to make a trade-off.
+20. What questions would you ask the interviewer?
+18. Final mixed mock interview
+These questions combine several areas, as real interviews often do.
+1. A React page fetches tasks from an Express API, but the results are duplicated. How would you debug it?
+2. A user changes a task's status, but the database update succeeds and the UI remains stale. What would you inspect?
+3. Design a PostgreSQL schema for users and tasks, then explain the relevant constraints.
+4. Explain how a JWT is validated in Express and how the backend determines which resources a user can access.
+5. Predict the output of code involving closures, Promises, and the event loop.
+6. A MongoDB query slows down as the dataset grows. What would you investigate?
+7. Explain how you would implement pagination using PostgreSQL and Prisma.
+8. A TypeScript interface describes an API response, but the actual response is malformed. How should the application handle it?
+9. Explain the difference between React Server Components and Client Components in Next.js.
+10. A database transaction fails after one operation succeeds. How would you ensure consistency?
+11. Design an upload flow for a PDF that will be indexed and searched using RAG.
+12. A RAG application retrieves relevant chunks but generates an incorrect answer. How would you investigate?
+13. An API works locally but fails after deployment. Walk through your debugging process.
+14. Explain the trade-offs between MongoDB and PostgreSQL for an e-commerce application.
+15. You need to implement an AI-powered document search feature in an existing MERN application. Describe your architecture and security considerations.
+
+How to use this question bank
+You now have a broad question bank covering 18 categories and more than 400 questions and exercises. You don't need to answer them all in this chat.
+
+I recommend this sequence:
+1. Work through each category independently.
+2. Attempt output questions by writing the expected output before running the code.
+3. Solve coding exercises in VS Code, not just mentally.
+4. Mark each question as Strong, Unsure, or Need Practice.
+5. Bring your answers back in batches when you're ready for evaluation.
+For coding questions, try the solution yourself before checking a reference implementation. For theory questions, practice explaining the answer aloud as if you're in an interview.
+
+One important distinction: this is a comprehensive preparation bank, not a guarantee that every possible interview question is covered. Some companies will also test data structures and algorithms, testing tools, or framework-specific details.
+
+Your next move: Start with the remaining CSS questions, finish that category, and then proceed to JavaScript. Keep the RAG and project questions for dedicated revision alongside the core stack, so your existing AI experience remains part of your interview preparation rather than getting lost in the MERN syllabus.

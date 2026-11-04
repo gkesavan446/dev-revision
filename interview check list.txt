@@ -42,6 +42,8 @@ const res = str.split(" ").reduce((acc, ele) => {
 }, "")
 console.log(res)
 
+
+
  var, let, const
  Scope and hoisting
  Closures
