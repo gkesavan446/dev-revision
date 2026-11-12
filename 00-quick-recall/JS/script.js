@@ -81,13 +81,13 @@
 // console.log(Boolean([]));
 
 
-console.log({} == {});
-console.log({} === {});
-console.log([] == []);
-console.log([] === []);
+// console.log({} == {});
+// console.log({} === {});
+// console.log([] == []);
+// console.log([] === []);
 
-console.log([] === {});
-console.log([] == {});
+// console.log([] === {});
+// console.log([] == {});
 
-console.log({} == []);
-console.log({} === []);
+// console.log({} == []);
+// console.log({} === []);
