@@ -79,3 +79,6 @@
 // console.log(Boolean("false"));
 // console.log(Boolean(""));
 // console.log(Boolean([]));
+
+
+console.log({} == {})
