@@ -91,3 +91,7 @@
 
 // console.log({} == []);
 // console.log({} === []);
+
+
+// Promise.resolve(console.log("working"));
+// Promise.reject(console.log("working"));
