@@ -95,3 +95,13 @@
 
 // Promise.resolve(console.log("working"));
 // Promise.reject(console.log("working"));
+
+
+const intervalId = setInterval(() => (
+    console.log("checking Interval")
+), 3000);
+
+setTimeout(() => (
+    clearInterval(intervalId),
+    console.log("cleared Interval")
+), 12000)
