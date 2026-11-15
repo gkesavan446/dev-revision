@@ -107,4 +107,7 @@
 // ), 12000);
 
 
+//closure
+// debounce
+// throttling
 
