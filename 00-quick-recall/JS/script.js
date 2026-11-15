@@ -107,7 +107,9 @@
 // ), 12000);
 
 
-//closure
+// closure
 // debounce
 // throttling
+// lazy loading
+// 
 
