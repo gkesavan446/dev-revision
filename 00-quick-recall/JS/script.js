@@ -111,5 +111,7 @@
 // debounce
 // throttling
 // lazy loading
-// 
+//
 
+
+// problems like find the duplicates and similar to that
