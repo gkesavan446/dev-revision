@@ -115,3 +115,11 @@
 
 
 // problems like find the duplicates and similar to that
+
+
+//for loop
+//for in
+//for of
+// forEach
+
+//map, filter, reduce
