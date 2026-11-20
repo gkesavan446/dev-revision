@@ -124,9 +124,10 @@
 
 //map, filter, reduce
 
-
 // polyfill for map, filter and reduce
 
-//call, apply and bind
+// call, apply and bind
 
 // promise, race, allSettled and other types
+
+// XMLHttpRequest: 
