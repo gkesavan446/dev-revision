@@ -13,12 +13,23 @@ nav {
     color: whitesmoke;
 }
 
+h2 {
+    text-transform:capitalize;
+    padding: 5px;
+}
+
 ul {
     display: flex;
     flex-direction: row;
     gap: 20px;
+    padding: 5px;
 }
 
 li {
     list-style-type: none;
+}
+
+li:hover{
+    text-decoration: underline;
+    font-weight: bolder;
 }
