@@ -32,3 +32,9 @@ li:hover{
     text-decoration: underline;
     font-weight: bolder;
 }
+
+footer{
+    background-color: grey;
+    height: 10px;
+    
+}
