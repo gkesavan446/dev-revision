@@ -33,10 +33,9 @@ li:hover{
     font-weight: bolder;
 }
 
-/* main{
-    display: flex;
-    height: 90%;
-} */
+main{
+   background-color: rgba(255, 243, 243, 0.959);
+}
 
 footer{
     background-color: grey;
@@ -44,4 +43,7 @@ footer{
     position: fixed;
     bottom: 0;
     width: 100%;
+    display: flex;
+    justify-content: center;
+  
 }
