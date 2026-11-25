@@ -42,7 +42,8 @@ main{
     padding: 15px;
     margin: 20px;
     width: 100px;
-    color: blue;
+    color: rgb(241, 53, 6);
+    background-color: rgb(158, 238, 158);
 }
 
 footer {
@@ -53,5 +54,5 @@ footer {
     width: 100%;
     display: flex;
     justify-content: center;
-  
+    color: whitesmoke;
 }
