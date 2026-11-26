@@ -46,6 +46,17 @@ main{
     background-color: rgb(158, 238, 158);
 }
 
+#btn {
+  background-color: blue;
+  transition: background-color 0.75s ease;
+  transition: color 0.75s ease-in;
+}
+
+#btn:hover {
+  background-color: red;
+  color: white
+}
+
 footer {
     background-color: grey;
     height: 20px;    
