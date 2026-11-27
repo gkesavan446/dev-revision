@@ -44,12 +44,13 @@ main{
     width: 100px;
     color: rgb(241, 53, 6);
     background-color: rgb(158, 238, 158);
+    transform: rotateX(45deg);
 }
 
 #btn {
   background-color: blue;
   transition: background-color 0.75s ease;
-  transition: color 0.75s ease-in;
+  transition: color 0.75s ease-in;  
 }
 
 #btn:hover {
